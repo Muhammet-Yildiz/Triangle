@@ -1,0 +1,96 @@
+body {
+    height: 5000px;
+    padding-bottom: 5rem;
+}
+
+.profile_field {
+    max-width: 520px;
+    margin-bottom: 10px;
+    height: 210px;
+    padding: 1rem;
+    padding-left: 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile_field img {
+    width: 150px;
+    height: 170px;
+    margin: 0 2rem;
+    border-radius: 50%;
+}
+
+.user-info h5 {
+    color: rgb(4, 88, 184);
+}
+
+.user-info p {
+    opacity: 0.8;
+}
+
+
+/* ------------------------------ */
+
+.user-update-form {
+    padding: 1rem;
+    margin-bottom: 5rem;
+    /* border: red solid 2px; */
+    padding-bottom: 2rem;
+}
+
+.user-update-form label {
+    display: block;
+    margin-top: 5px;
+    font-size: 1.1rem;
+    font-weight: 560;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.user-update-form input {
+    width: 100%;
+    padding: 0.5rem;
+}
+
+#id_profile_image {
+    margin-top: 1rem;
+}
+
+.user-update-form input[type="checkbox"] {
+    display: none;
+}
+
+.user-update-form input[type="checkbox"]+label {
+    display: none;
+}
+
+.user-update-form legend {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    color: rgb(4, 88, 184) !important;
+}
+
+.user-update-form p {
+    background-color: aqua;
+}
+
+.user-update-form .helptext {
+    display: none;
+}
+
+.user-update-form button {
+    background-color: rgb(2, 75, 158);
+    color: white;
+    transition: 650ms;
+}
+
+.user-update-form button:hover {
+    background-color: rgb(2, 107, 177);
+    color: white
+}
+
+h2 {
+    color: rgb(2, 75, 158) !important;
+    opacity: 0.9;
+    font-size: 1rem;
+    font-weight: bold !important;
+}

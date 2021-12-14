@@ -1,0 +1,186 @@
+{% extends "layout.html" %} {% load static %} {% block title %} Your List {% endblock title %} {% block static %}
+<link rel="stylesheet" href="{% static 'css/readListPage.css'   %}"> {% endblock static %} {% block body %} {% include "includes/navbar3.html" %}
+
+<div class="Bigwrap">
+
+    <h2>Reading List </h2>
+
+    <div class="userReadInfo">
+
+        <div class="img">
+            <img src="{{request.user.profile.profile_image.url}}" alt="{{request.user}}">
+        </div>
+        <div class="medium">
+            <b> 
+                <a href="/about/@{{request.user}}">
+                    {{request.user|title}}
+                </a>
+               </b>
+            <div class="wrp">
+                <div class="nowDate">
+                    {% now "M d" %}
+                </div>
+                <span>-</span>
+                <div class="stories">
+                    <span>
+                       <span>
+                        {{length}} 
+                       </span> stories
+                    </span>
+                    <div>
+                        <i class="bi bi-lock-fill"></i>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <i class="bi bi-three-dots"></i>
+
+    </div>
+
+
+    <div class="storyEmp">
+
+
+        {% for story in readList %}
+
+
+        <div class="story">
+
+            <section>
+                <div class="storyTop">
+                    <div class="storyAuthor">
+                        <a href="/about/@{{story.author}}">
+                            {{story.author|title}}
+                        </a>
+                    </div>
+                    <span>-</span>
+                    <div class="created_date">
+                        {{story.created_date|date:"M d"}}
+                    </div>
+                    <div class="starIcon">
+                        <i class="bi bi-star-fill"></i>
+
+                    </div>
+                </div>
+
+                <div class="storyMed">
+                    <div class="storyTitle">
+                        <a href="/story/{{story.author}}/{{story.slug}}/{{story.id}}">
+                            {{story.title}}
+
+                        </a>
+                    </div>
+                    <div class="storyContent">
+                        {{story.content|safe|truncatewords:11}}
+                    </div>
+
+                </div>
+
+                <div class="storyBottom">
+                    <a href="/story/{{story.author}}/{{story.slug}}/{{story.id}}">
+
+                        <span>
+                            Read More 
+                        </span>
+                        <span>
+                                    -
+                        </span>
+                        <span>
+                            {{story.readDuration}} min read 
+                        </span>
+
+
+                    </a>
+
+                    <div>
+                        <i class="bi bi-bookmark-fill addBookmarkIcon"></i>
+                        <span></span>
+
+
+                        <i class="bi bi-three-dots storyDot"></i>
+                        <div class="itemOptions">
+                            <ul>
+                                <li class="deleteItem" data-id={{story.id}}> Remove item </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="storyImageWrap">
+
+                    <img src="{{story.article_image.url}}" alt="{{story.title}} " width="80">
+                </div>
+
+            </section>
+
+
+        </div>
+
+
+        {% endfor %}
+
+
+    </div>
+
+
+
+
+</div>
+
+
+
+
+{% endblock body %} {% block script %}
+
+<script>
+    $(function() {
+
+
+
+        $(".storyDot").click(function() {
+            const itemOptions = $(this).next()
+
+            if (itemOptions.css("display") == 'none') {
+                $(itemOptions).css("display", "block")
+            } else {
+                $(itemOptions).css("display", "none")
+            }
+
+        })
+
+
+
+
+        $(".deleteItem").click(function(e) {
+            e.preventDefault();
+
+            storyId = $(this).data("id")
+            console.log(storyId)
+
+            $.ajax({
+                url: "/removeFromStoryReadlist/" + storyId,
+                method: "GET",
+                success: function(data) {
+
+
+                    $(e.target).parent().parent().parent().parent().parent().parent().css("display", "none")
+
+                    var value = $(".stories span span").text()
+
+                    $(".stories span span").text(value - 1)
+
+                }
+            })
+
+        })
+
+
+    })
+</script>
+
+{% endblock script %}

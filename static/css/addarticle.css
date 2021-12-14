@@ -1,0 +1,38 @@
+form {
+    margin: 1rem auto;
+    width: 80%;
+    padding: 1rem;
+}
+
+form h3 {
+    text-align: center;
+}
+
+form p {
+    position: relative;
+}
+
+form label {
+    display: block;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+form input {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: black solid 1px;
+}
+
+form textarea {
+    width: 100%;
+    height: 150px;
+    display: block;
+    resize: none;
+    padding: 0.5rem;
+}
+
+.errorlist {
+    background-color: red;
+}

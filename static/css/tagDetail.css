@@ -1,0 +1,580 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Fredoka+One&family=Jost:wght@300&family=Lilita+One&family=Padauk&family=Readex+Pro:wght@300&family=Russo+One&family=Secular+One&family=Squada+One&family=Staatliches&display=swap');
+.TagEmployee {
+    /* border: red solid 3px; */
+    width: 1200px;
+    margin: 5rem auto;
+    padding-top: 3.3rem;
+    position: relative;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.section_two {
+    /* border: red solid 3px; */
+    position: sticky;
+    top: -480px;
+    right: 0;
+}
+
+.section_one {
+    position: relative;
+    border-right: 1px solid rgba(230, 230, 230, 1);
+    width: 810px;
+    padding-right: 3.4rem;
+    height: auto;
+}
+
+.top_tag_info {
+    /* border: green solid 3px; */
+    width: 100%;
+    margin-bottom: 1.8rem;
+}
+
+.top_tag_info h2 {
+    display: flex;
+    /* border: yellow solid 3px; */
+    font-family: 'Secular One', sans-serif;
+    font-weight: bold;
+    margin-bottom: 14px;
+    font-size: 2.5rem;
+}
+
+.top_tag_info .tagIcon {
+    background-color: rgb(235, 235, 235);
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.top_tag_info .tagIcon i {
+    font-size: 1.1rem;
+    transform: rotate(90deg);
+}
+
+.top_tag_info .followTagBtn {
+    margin-left: 9px;
+    padding: 8px 13px;
+    background-color: white;
+    border: rgba(26, 137, 23, 1) solid 1px;
+    background-color: rgba(26, 137, 23, 1);
+    color: white;
+    font-weight: 600;
+    border-radius: 16px;
+    font-size: 0.8rem;
+}
+
+.top_tag_info .startWritingLink {
+    padding: 8px 13px;
+    border: rgba(26, 137, 23, 1) solid 1px;
+    background-color: white;
+    color: rgba(26, 137, 23, 1);
+    border-radius: 16px;
+    font-weight: 600;
+    margin-left: 6px;
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+
+/* -------------------------------- */
+
+.filterFieldOptions {
+    border-bottom: rgba(230, 230, 230, 1) solid 1px;
+    display: flex;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.filterFieldOptions li {
+    margin-right: 20px;
+}
+
+.filterFieldOptions li a {
+    color: rgb(97, 97, 97);
+    text-decoration: none;
+    font-family: 'Padauk', sans-serif;
+    font-weight: 570;
+}
+
+.filterFieldOptions li:first-child a {
+    color: black !important;
+}
+
+
+/* ----------------------- */
+
+.StoriesWrap {
+    /* border: red solid 3px; */
+    padding-top: 2.4rem;
+    position: relative;
+}
+
+.StoriesWrap .Story_med {
+    /* border: red solid 3px; */
+    margin-bottom: 1.8rem;
+    display: flex;
+    height: 260px;
+}
+
+.Story_med .storySec1 {
+    display: flex;
+    flex-direction: column;
+    padding-left: 6px;
+    padding-top: 40px;
+    /* border: purple solid 5px; */
+    margin-right: 10px;
+    width: 125px !important;
+}
+
+.Story_med .storySec1 .clapBtn {
+    background-color: white;
+    /* border: 2px solid black; */
+    border: none;
+    outline: 0;
+    width: 55px;
+}
+
+.Story_med .storySec1 .clapBtn:hover {
+    opacity: 0.7;
+}
+
+.Story_med .storySec1 .followNumber {
+    margin-top: 6px;
+    width: 55px;
+    /* border: 2px solid black; */
+    text-align: center;
+    font-family: 'Readex Pro', sans-serif;
+    font-weight: bold;
+}
+
+.Story_med .storyClapUserImages {
+    /* border: yellow solid 2px; */
+    margin-left: 8px;
+    margin-top: 16px;
+    position: relative;
+    width: 26px;
+    display: flex;
+    width: 55px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Story_med .storyClapUserImages img {
+    border-radius: 50%;
+    border: white solid 3px;
+}
+
+.Story_med .storyClapUserImages img:nth-child(1) {
+    margin-right: -10px;
+    z-index: 6;
+}
+
+.Story_med .storyClapUserImages img:nth-child(2) {
+    margin-right: -10px;
+    z-index: 5;
+}
+
+.Story_med .storyClapUserImages img:nth-child(3) {
+    z-index: 4;
+}
+
+
+/* -*----------------------- */
+
+.Story_med .storySec2 {
+    /* border: blue solid 3px; */
+    border-bottom: 1px solid rgba(230, 230, 230, 1);
+    width: 100%;
+    height: auto;
+}
+
+.Story_med .storySec2 .Story {
+    /* border: green solid 3px; */
+    position: relative;
+    height: 250px;
+}
+
+.storySec2 .Story .story_t_info {
+    /* border: red solid 3px; */
+    width: 100%;
+}
+
+.story_t_info img {
+    width: 20px;
+    margin-right: 4px;
+    border-radius: 5px;
+}
+
+.story_t_info span {
+    font-family: 'Acme', sans-serif;
+    font-size: 0.9rem;
+}
+
+.story_med_info {
+    /* border: yellow solid 5px; */
+    height: 235px;
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.story_med_info .box2_s {
+    /* border: green solid 5px; */
+    width: 210px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 155px;
+}
+
+.box1 .box2_s {
+    /* border: red solid 5px !important; */
+    position: absolute;
+    right: -240px;
+}
+
+.story_med_info .box2_s img {
+    width: 100%;
+    height: 100%;
+}
+
+.story_med_info .box1 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    /* border: blueviolet solid 3px; */
+    width: 390px;
+    height: 155px;
+}
+
+.story_med_info .box1 .storyTitle {
+    font-weight: bold;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.6rem;
+    line-height: 29px;
+    margin: 8px 0;
+    font-family: 'Russo One', sans-serif;
+    font-family: 'Staatliches', cursive;
+    /* font-family: 'Lilita One', cursive; */
+    font-family: 'Squada One', cursive;
+}
+
+.story_med_info .box1 .storyContent {
+    font-size: 0.9rem;
+    color: rgb(80, 80, 80);
+    line-height: 22px;
+    /* border: red solid 2px; */
+    height: 48px;
+    overflow: hidden;
+}
+
+.story_med_info .box1 .storyextrainfos {
+    /* border: yellow solid 3px; */
+    display: flex;
+    font-size: 0.7rem;
+    font-family: 'Mukta', sans-serif;
+    color: rgb(151, 151, 151);
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%
+}
+
+.story_med_info .box1 .storyextrainfos span {
+    margin: 0 5px;
+}
+
+.starIcon {
+    margin-left: 6px;
+    margin-top: -3px;
+    font-size: 0.6rem;
+}
+
+.story_bot_info {
+    display: flex;
+    justify-content: space-between;
+    /* border: red solid 3px; */
+    padding-right: 16px;
+    font-size: 1.2rem;
+    align-items: center;
+    width: 100%;
+    margin-top: -3rem;
+}
+
+.story_bot_info div i {
+    cursor: pointer !important;
+    z-index: 9 !important;
+}
+
+.story_bot_info div:nth-child(2) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.story_bot_info .storyBookmark {
+    margin: 0 19px;
+}
+
+.commentNumber {
+    font-family: 'Readex Pro', sans-serif;
+    font-size: 1rem;
+    color: rgb(109, 109, 109);
+}
+
+
+/* ------------------------------------- */
+
+.generalTagInfo {
+    padding-bottom: 2.1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(230, 230, 230, 1);
+}
+
+.generalTagInfo ul {
+    /* border: 1px solid lawngreen; */
+    padding: 0;
+    display: flex;
+    margin-bottom: 1.3rem;
+}
+
+.generalTagInfo ul li {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    margin-right: 5.8rem;
+}
+
+.generalTagInfo ul li b {
+    text-align: center;
+    font-size: 1.4rem;
+    font-family: 'Staatliches', cursive;
+    margin-bottom: 4px;
+}
+
+.generalTagInfo ul li span {
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    color: rgb(97, 97, 97)
+}
+
+.tagUserWritersImages {
+    /* border: rgb(255, 0, 255) solid 2px; */
+    width: 100%;
+    position: relative;
+    padding-left: 15px;
+}
+
+.tagUserWritersImages img {
+    border-radius: 50%;
+    margin-left: -15px;
+    border: 3px solid white;
+}
+
+.SuggestUser_s {
+    position: relative;
+    /* border: rgb(0, 255, 255) solid 5px; */
+    height: auto;
+    width: 400px;
+    padding-left: 2.6rem;
+}
+
+.Recommended_topics {
+    /* border: gold solid 4px; */
+    padding: 1.4rem 0.5rem;
+    width: 380px;
+    height: 280px;
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+.Recommended_topics h5 {
+    font-size: 1rem;
+    font-weight: bold;
+    padding-left: 0.3rem;
+}
+
+.Recommended_topics ul {
+    /* border: green solid 1px; */
+    display: flex;
+    padding: 0;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 1.3rem;
+}
+
+.Recommended_topics ul li {
+    background-color: rgba(242, 242, 242, 1);
+    color: rgba(41, 41, 41, 1);
+    padding: 8px 16px;
+    border-radius: 8px;
+    margin: 0.5rem 0.6rem;
+    transition: 350ms ease all;
+}
+
+.Recommended_topics ul li:hover {
+    background-color: rgb(224, 224, 224);
+}
+
+.Recommended_topics ul li a {
+    color: rgba(41, 41, 41, 1);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.7rem;
+}
+
+.whoToFollow,
+.RecentlySaved {
+    /* border: red solid 5px; */
+    padding: 1.4rem 0.8rem;
+    width: 380px;
+    height: auto;
+}
+
+.whoToFollow h5,
+.RecentlySaved h5 {
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    padding-left: 0.3rem;
+    margin-bottom: 1rem;
+    margin-top: 0.6rem;
+}
+
+.whoToFollow .userWrap {
+    /* border: yellowgreen solid 3px; */
+    position: relative;
+}
+
+.userWrap .suggestedUser {
+    border-bottom: rgba(230, 230, 230, 0.2) solid 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 5px
+}
+
+.userWrap .suggestedUser .userImageWrap {
+    /* border: blue solid 3px; */
+    position: relative;
+    padding-top: 10px;
+}
+
+.userWrap .suggestedUser img {
+    width: 45px;
+    height: 45px;
+    margin-right: 11px;
+    border-radius: 50%;
+}
+
+.suggestedUser .introduce {
+    /* border: rgb(255, 0, 242) solid 2px; */
+    position: relative;
+    width: 100%
+}
+
+.suggestedUser .introduce h3 {
+    font-size: 1rem;
+    font-family: 'Balsamiq Sans', cursive;
+    padding-top: 10px;
+    margin-bottom: 0.3rem;
+}
+
+.suggestedUser .introduce h3 a {
+    color: rgb(32, 32, 32);
+    text-decoration: none;
+}
+
+.suggestedUser .introduce h3 a:hover {
+    text-decoration: none;
+}
+
+.suggestedUser .introduce p {
+    font-size: 0.7rem;
+    color: gray;
+    font-family: 'Hind', sans-serif;
+}
+
+.suggestedUser .followBtn {
+    background-color: white;
+    outline: 0;
+    border: 1px solid rgb(73, 73, 73);
+    border-radius: 10px;
+    padding: 0.4rem 0.7rem;
+    font-size: 0.7rem;
+    font-family: 'Mukta', sans-serif;
+    font-weight: 560;
+    margin: 20px 10px;
+    margin-left: 2rem !important;
+    color: rgb(73, 73, 73);
+}
+
+.suggestedUser .followBtn:hover {
+    border: 1px solid black;
+    color: black;
+}
+
+
+/* recently saved story  -request.user */
+
+.savedStories {
+    /* border: green solid 2px; */
+    position: relative;
+    margin-top: 25px;
+}
+
+.savedStories .savedStory {
+    border: transparent solid 2px;
+    margin-bottom: 22px;
+}
+
+.savedStory .wrap_1 {
+    display: flex;
+    align-items: center;
+}
+
+.savedStory .wrap_1 img {
+    width: 22px;
+    height: 22px;
+    margin-right: 9px;
+    border-radius: 50%;
+}
+
+.savedStory .wrap_1 b {
+    font-size: 0.7rem;
+    font-family: 'Mukta ', sans-serif;
+    font-weight: 550;
+    color: rgb(92, 92, 92);
+}
+
+.savedStory .wrap_2 {
+    font-family: 'Balsamiq Sans', cursive;
+    margin: 7px 0;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: black;
+}
+
+.savedStory .wrap_3 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 550;
+    color: gray;
+    font-size: 0.7rem;
+}
+
+.RecentlySaved .SeeAll a {
+    font-weight: bold;
+    font-family: 'Mukta', sans-serif;
+    color: rgba(26, 137, 23, 1);
+    font-size: 0.9rem;
+    margin-top: 15px;
+}

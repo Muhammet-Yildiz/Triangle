@@ -1,0 +1,114 @@
+.userOptions {
+    position: relative;
+}
+
+.userOptions .userImage {
+    cursor: pointer;
+}
+
+.userOptions .userImage img {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+}
+
+.dropdownWrap {
+    position: absolute;
+    border: rgb(219, 219, 219) solid 2px;
+    border-radius: 6px;
+    display: flex;
+    width: 200px;
+    flex-direction: column;
+    top: 40px;
+    left: -65px;
+    padding: 1rem 0;
+    z-index: 52;
+    background-color: white;
+    font-family: 'Mukta', sans-serif;
+    display: none;
+}
+
+.dropdownWrap .top_info {
+    border-bottom: rgb(219, 219, 219) solid 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    padding-bottom: 0.4rem;
+}
+
+.dropdownWrap .top_info img {
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+}
+
+.dropdownWrap .top_info .info_s {
+    /* border: red solid 1px; */
+    width: 115px;
+}
+
+.dropdownWrap .top_info .info_s h5 {
+    font-size: 0.9rem;
+    padding: 0;
+    margin-bottom: 3px;
+    font-weight: 550;
+    margin-top: 5px;
+}
+
+.dropdownWrap .top_info .info_s h6 {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.dropdownWrap ul {
+    padding: 10px 0;
+    border-bottom: 1px solid rgb(219, 219, 219);
+}
+
+.dropdownWrap ul li {
+    padding: 0.5rem 1rem;
+}
+
+.dropdownWrap ul li a {
+    color: black;
+    font-family: 'Mukta', sans-serif;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+.dropdownWrap ul li a:hover {
+    opacity: 1;
+}
+
+.btm_inf {
+    display: flex;
+}
+
+.btm_inf li {
+    font-size: 0.6rem;
+    padding-left: 1rem;
+}
+
+.btm_inf li a {
+    color: black;
+    opacity: 0.7;
+}
+
+.searchField {
+    /* border: red solid 3px; */
+    margin-right: 1.5rem;
+}
+
+.About {
+    margin-left: 1.5rem !important;
+}
+
+.top_s1 h2 {
+    font-size: 1.8rem !important;
+}
+
+.top_s1 h2 a {
+    color: black;
+}

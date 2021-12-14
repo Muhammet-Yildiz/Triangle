@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/navbar2.css">
+    <style>
+
+    </style>
+</head>
+
+<body>{% load static %}
+    <header>
+        <div class="employee">
+            <div class="top_s1">
+                <h2>
+
+                    <a href="/stories/@{{Author}}">
+                        {{Author|title}}
+                    </a>
+
+                </h2>
+
+                {% if Author.profile.followers.count == 1 %} {% if request.user in Author.profile.followers %}
+
+                <div class="followers">
+                    <a href="#">
+                        <span>
+                            {{Author.profile.followers.count}} 
+                        </span> Followers
+                    </a>
+                </div>
+                {% endif %} {% else %}
+
+                <div class="followers">
+                    <a href="/followers/{{Author}}">
+                        <span>
+                            {{Author.profile.followers.count}} 
+                        </span> Followers
+                    </a>
+                </div>
+                {% endif %}
+
+
+
+
+                <div class="About">
+                    <a href="/about/@{{Author}}">
+                        About
+                    </a>
+                </div>
+
+
+                {% if request.user.is_authenticated %} {% if request.user != Author %} {% if Author in request.user.profile.following.all %}
+
+                <button class="followButton" data-from={{request.user}} data-to={{Author}} style="background-color: white; color:green ;border:green solid 2px ">
+                    Following
+                </button> {% else %}
+                <button class="followButton" data-from={{request.user}} data-to="{{Author}}" style="background-color: green; color:white ;border:green solid 2px">
+                    Follow
+                </button> {% endif %}
+
+
+
+                <button class="envelopeBtn">
+                    <i class="bi bi-envelope"></i>     
+                </button> {% endif %} {% endif %}
+
+            </div>
+
+            <div class="top_s2">
+                <form class="searchField" method="GET" action="/search">
+                    <button type="submit">
+                        <img src="{% static 'Svg/searchIcon.svg' %}" alt="search" width="20" style="margin-top: 2px;">
+
+                    </button>
+
+                    <input type="text" placeholder="Search Story" name="q" id="searchTerm">
+                </form>
+
+                <a href="/">
+                    <img src="{% static 'Image/triangle_icon.png' %}" alt="triangle">
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+    </header>
+
+
+</body>
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+
+<script src="{% static 'js/follow.js' %}">
+</script>
+
+
+</html>

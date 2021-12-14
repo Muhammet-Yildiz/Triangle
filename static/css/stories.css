@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700;900&family=IBM+Plex+Serif&family=Merriweather:wght@300&family=Secular+One&display=swap');
+.storiesEmp {
+    position: relative;
+    /* border: red solid 5px; */
+    margin: 0 auto;
+    width: 680px;
+    height: auto;
+}
+
+.storiesEmp .Story {
+    /* border: green solid 2px; */
+    width: 100%;
+    position: relative;
+    padding-top: 1.6rem;
+}
+
+.Story .topInfo {
+    /* border: yellow solid 2px; */
+    font-family: 'Mukta', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 550;
+}
+
+.Story .topInfo b {
+    color: green;
+}
+
+.Story .topInfo div {
+    display: inline-block;
+}
+
+.Story .topInfo span {
+    margin: 0 5px;
+}
+
+.Story .topInfo div {
+    color: rgb(109, 109, 109);
+    font-weight: 550;
+}
+
+.Story .storyTitle {
+    font-size: 2rem;
+    font-family: 'Secular One', sans-serif;
+    margin-top: 0.9rem;
+    font-weight: bold
+}
+
+.Story .storyTitle a {
+    color: black;
+}
+
+.Story .storyImageWrap {
+    width: 100%;
+    height: 450px;
+    margin: 1.4rem 0;
+}
+
+.Story .storyImageWrap img {
+    width: 100%;
+    height: 100%;
+}
+
+.Story .storyContent {
+    font-family: 'IBM Plex Serif', serif;
+    font-size: 1.2rem;
+}
+
+.Story .littleSec a {
+    font-size: 0.9rem;
+    font-weight: 550;
+    color: green;
+}
+
+.Story .votingField {
+    border-bottom: rgb(238, 237, 237) solid 1px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    padding-bottom: 3.1rem;
+}
+
+.Story .votingField .wrap1 {
+    /* border: rgb(0, 38, 255) solid 3px; */
+    display: flex;
+    width: 160px;
+    font-size: 1.3rem;
+    align-items: center;
+}
+
+.wrap1 .clapBtn {
+    background-color: white;
+    border: none;
+}
+
+.wrap1 div.followNumber {
+    font-size: 1.1rem;
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 4px;
+    margin-right: 2.5rem;
+    margin-top: 8px;
+    color: rgb(99, 99, 99);
+}
+
+.wrap1 div.commentNumber {
+    font-size: 1.1rem;
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 9px;
+    color: rgb(99, 99, 99);
+    margin-top: 8px;
+}
+
+.Story .votingField .wrap2 {
+    font-size: 1.3rem;
+    padding-right: 6px;
+    /* border: rgb(0, 38, 255) solid 3px; */
+    display: flex;
+    justify-content: space-between;
+    width: 70px;
+    position: relative;
+}
+
+.Story .votingField .wrap2 i {
+    cursor: pointer;
+}
+
+
+/* --------------------- */
+
+.fixedUserInfo {
+    position: absolute;
+    left: 150px;
+    width: 200px;
+    /* border: red solid 3px; */
+    height: 380px;
+    top: 180px;
+}
+
+@media only screen and (max-width: 1400px) {
+    .fixedUserInfo {
+        display: none;
+    }
+}
+
+.fixedUserInfo .fix_top {
+    /* border: green solid 1px; */
+    width: 150px;
+    height: 150px;
+    margin-bottom: 1rem;
+}
+
+.fixedUserInfo .fix_top img {
+    width: 100%;
+    height: 100%;
+}
+
+.fixedUserInfo b {
+    font-family: 'Mukta', sans-serif;
+    color: rgb(71, 71, 71);
+    font-size: 1.1rem;
+}
+
+.fixedUserInfo .introduce {
+    font-family: 'IBM Plex Serif', serif;
+    font-size: 0.8rem;
+    margin: 10px 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 550;
+    color: rgb(125, 125, 125);
+    /* border :red solid 1px ; */
+    width: 163px;
+}
+
+.fixedUserInfo .btm2 {
+    /* border: orange solid 2px; */
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 1.2rem;
+}
+
+.fixedUserInfo .btm2 .followButton,
+.fixedUserInfo .btm2 .envelopeBtn {
+    background-color: green;
+    padding: 7px 13px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: white;
+    border-radius: 20px;
+    transition: 350ms ease;
+    font-family: 'Mukta', sans-serif;
+    outline : 0 !important ;
+    border:green solid 2px ;
+    
+}
+
+.fixedUserInfo .btm2 .envelopeBtn {
+    margin-left: 20px;
+    padding: 5px 10px !important;
+    border-radius: 50%;
+    font-size: 0.9rem
+}
+
+.storyDot {
+    cursor: pointer;
+}
+
+.itemOptions {
+    width: 120px;
+    height: 75px;
+    position: absolute;
+    top: 37px;
+    right: -50px;
+    z-index: 6;
+    background-color: white;
+    /* box-shadow: 0 0 4px 3px rgb(209, 209, 209); */
+    border: 1px solid rgba(230, 230, 230, 1);
+    border-radius: 4px;
+    /* border: red solid 2px; */
+    display: none;
+}
+
+.itemOptions ul {
+    /* border: red solid 2px; */
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem 0
+}
+
+.itemOptions ul li {
+    /* border: green solid 2px; */
+    font-size: 0.8rem;
+    font-family: 'Mukta', sans-serif;
+    font-weight: 550;
+    color: rgb(117, 117, 117);
+    transition: 350ms ease;
+    cursor: pointer;
+    align-items: center;
+    text-align: center;
+    margin: 6px 0;
+}
+
+.itemOptions ul li a {
+    color: rgb(117, 117, 117);
+}
+
+.editItem a:hover {
+    color: rgb(194, 194, 12)
+}
+
+.deleteItem:hover {
+    color: red
+}

@@ -1,0 +1,56 @@
+{% extends "layout.html" %} {% load static %} {% block title %} Edit Story - Triangle {% endblock title %} {% block static %}
+
+<link rel="stylesheet" href="{% static 'css/newStory.css' %}"> {% endblock static %} {% block body %} {% include "includes/navbar4.html" %}
+
+<div class="newStoryEmp">
+
+
+    <form method="post" enctype="multipart/form-data">
+
+        {{form}} {{form.media }} {% csrf_token %}
+        <button type="submit" class="btn btn-info publish " style="display: none;">Publish  </button>
+
+        <div class="currentlyImage">
+            <div class="absolute">
+                Currently Image
+            </div>
+            <img src="#" alt="currentlyImage">
+        </div>
+        <div class="StoryImageField">
+            <i class="bi bi-upload"></i>
+            <div class="txt">
+                Change the image in your story
+            </div>
+
+        </div>
+
+        <div class="tagsEmp">
+
+
+            {% for tag in tags %} {% if tag in story.topic.all %}
+
+            <li class="active">
+                {{tag}}
+            </li>
+            {% else %}
+
+            <li>
+                {{tag}}
+            </li>
+            {% endif %} {% endfor %}
+
+        </div>
+
+    </form>
+
+
+</div>
+
+
+{% endblock body %} {% block script %}
+
+<script src="{% static 'js/newStory.js'%}"></script>
+<script src="{% static 'js/editStory.js'%}"></script>
+
+
+{% endblock script %}

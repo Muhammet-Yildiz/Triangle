@@ -1,0 +1,75 @@
+{% extends 'layout.html' %} {% load static %} {% block title %} {% for target in targetUser %} About - {{target|title}} -Triangle {% endfor %} {% endblock title %} {% block static %}
+
+<link rel="stylesheet" href="{% static 'css/about.css' %}"> {% endblock static %} {% block body %} {% include "includes/aboutNavbar.html" %} {% if targetUser %}
+
+<div class="aboutEmp">
+
+
+    {% for target in targetUser %}
+    <div class="wrp1">
+
+        <div class="aboutInfo">
+            <h2>About <span>
+                {{target|title}}
+            </span> </h2>
+            <div class="aboutContent">
+
+                {% if target.profile.introduce %} {{target.profile.introduce}} {% else %} ??? {% endif %}
+
+            </div>
+
+        </div>
+
+        <div class="ImageWrap">
+            <img src="{{target.profile.profile_image.url}}" alt="{{targetUser.username}}" width="35">
+        </div>
+    </div>
+
+    <div class="wrp2">
+
+        <div class="follow">
+
+
+            {% if target.profile.followers.count == 1 %} {% if request.user in target.profile.followers %} {% else %} {% if request.user == target %}
+
+            <a href="/followers/{{target}}"> {{target.profile.followers.count}} Followers </a>
+
+            <span>-</span> {% endif %} {% endif %} {% else %}
+
+
+            <a href="/followers/{{target}}"> {{target.profile.followers.count}} Followers </a>
+
+            <span>-</span> {% endif %}
+
+
+
+
+
+            <a href="#"> {{target.profile.following.count}} Following </a>
+
+        </div>
+
+        <div class="twitterUserInfo">
+            <div>
+                Connect with {{target|title}}
+            </div>
+
+            {% if target.profile.twitterAdress %}
+            <a href="{{target.profile.twitterAdress}}" target="_blank">
+                <i class="bi bi-twitter"></i>
+            </a>
+            {% else %}
+            <i class="bi bi-twitter"></i> {% endif %}
+
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+
+</div>
+
+
+{% endif %} {% endblock body %}

@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@300&family=Signika+Negative&display=swap');
+header {
+    /* border: red solid 2px; */
+    height: 50px;
+    position: relative;
+    margin-top: 6px;
+}
+
+.NavEmp {
+    /* border: blue solid 2px; */
+    margin: 0 auto;
+    width: 1000px;
+    height: 100%;
+}
+
+.Navbar {
+    /* border: green solid 2px; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Navbar .chapter1 {
+    /* border: green solid 2px; */
+    display: flex;
+    width: auto;
+    height: 100%;
+    align-items: center;
+}
+
+.chapter1 .LogoTriang {
+    height: 100%;
+    width: 55px;
+    /* border: green solid 2px; */
+    position: relative;
+    margin-right: 1px;
+}
+
+.chapter1 .LogoTriang img {
+    width: 100%;
+    height: 100%;
+}
+
+.chapter1 .explan {
+    font-size: 0.9rem;
+    font-weight: 560;
+    letter-spacing: 0.8px;
+    font-family: 'Signika Negative', sans-serif;
+    color: rgb(85, 85, 85);
+}
+
+.chapter2 {
+    /* border: yellowgreen solid 5px; */
+    display: flex;
+    width: auto;
+    height: 100%;
+    align-items: center;
+}
+
+.chapter2 i {
+    font-size: 1.1rem;
+    margin-left: 20px;
+    cursor: pointer;
+    opacity: 0.9
+}
+
+.chapter2 .publishBtn {
+    border: none;
+    background-color: rgb(3, 151, 3);
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    border-radius: 7px;
+    font-weight: 550;
+    transition: 250ms ease;
+    cursor: pointer;
+}
+
+.disable {
+    opacity: 0.3;
+}
+
+.disable:hover {
+    background-color: rgb(3, 151, 3) !important;
+    opacity: 0.3;
+}
+
+.chapter2 .publishBtn:hover {
+    background-color: rgb(2, 119, 2);
+}
+
+.userOptions {
+    position: relative;
+    margin-left: 22px;
+}
+
+.userOptions .userImage {
+    cursor: pointer;
+}
+
+.userOptions .userImage img {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+}
+
+.dropdownWrap {
+    position: absolute;
+    border: rgb(219, 219, 219) solid 2px;
+    border-radius: 6px;
+    display: flex;
+    width: 200px;
+    flex-direction: column;
+    top: 40px;
+    left: -65px;
+    padding: 1rem 0;
+    z-index: 52;
+    background-color: white;
+    font-family: 'Mukta', sans-serif;
+    display: none;
+}
+
+.dropdownWrap .top_info {
+    border-bottom: rgb(219, 219, 219) solid 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    padding-bottom: 0.4rem;
+}
+
+.dropdownWrap .top_info img {
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+}
+
+.dropdownWrap .top_info .info_s {
+    /* border: red solid 1px; */
+    width: 115px;
+}
+
+.dropdownWrap .top_info .info_s h5 {
+    font-size: 0.9rem;
+    padding: 0;
+    margin-bottom: 3px;
+    font-weight: 550;
+    margin-top: 5px;
+}
+
+.dropdownWrap .top_info .info_s h6 {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.dropdownWrap ul {
+    padding: 10px 0;
+    border-bottom: 1px solid rgb(219, 219, 219);
+}
+
+.dropdownWrap ul li {
+    padding: 0.5rem 1rem;
+    list-style-type: none;
+}
+
+.dropdownWrap ul li a {
+    color: black;
+    font-family: 'Mukta', sans-serif;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+.dropdownWrap ul li a:hover {
+    opacity: 1;
+}
+
+.btm_inf {
+    display: flex;
+}
+
+.btm_inf li {
+    font-size: 0.6rem;
+    padding-left: 1rem;
+    list-style-type: none;
+}
+
+.btm_inf li a {
+    color: black;
+    opacity: 0.7;
+}

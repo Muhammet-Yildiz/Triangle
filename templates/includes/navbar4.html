@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/navbar4.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="NavEmp">
+            {% load static %} {% if request.user.is_authenticated %}
+            <div class="Navbar">
+                <div class="chapter1">
+                    <div class="LogoTriang">
+                        <a href="/">
+
+                            <img src="{% static 'Image/triangle_icon.png' %}" alt="triangle">
+                        </a>
+
+                    </div>
+                    <div class="explan">
+                        Draft in {{request.user|title}}
+                    </div>
+                </div>
+                <div class="chapter2">
+                    <button class="publishBtn disable " disabled="true">
+                        Publish
+                    </button>
+
+                    <i class="bi bi-three-dots"></i>
+
+                    <i class="bi bi-bell"></i>
+
+                    <div class="userOptions">
+
+
+                        <div class="userImage">
+
+
+                            <img src="{{user.profile.profile_image.url}}" alt="user-photo">
+
+                        </div>
+
+                        <div class="dropdownWrap">
+
+                            <div class="top_info">
+
+
+                                <img src="{{user.profile.profile_image.url}}" alt="user-photo" width="30">
+
+                                <div class="info_s">
+                                    <h5>{{request.user.username|title }}</h5>
+                                    <h6> @{{request.user.email|truncatechars:11 }}</h6>
+                                </div>
+                            </div>
+
+                            <ul>
+                                <li>
+
+                                    <a href="/new-story">
+                                        Write a story
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/stories/@{{request.user}}">
+                                        Stories
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/about/@{{request.user}}">
+                                        About You
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/logout">
+                                        Sign Out
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <div class="btm_inf">
+
+                                <li>
+                                    <a href="#">
+                                        Privacy
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Terms
+                                    </a>
+                                </li>
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+            {% else %} {% endif %}
+
+        </div>
+
+    </header>
+
+
+</body>
+<script src="../../static/js/jquery-3.2.1.min.js"></script>
+
+<script src="../../static/js/navbar.js"></script>
+
+
+</html>

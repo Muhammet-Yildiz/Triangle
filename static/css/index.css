@@ -1,0 +1,375 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&family=Be+Vietnam+Pro:wght@300&family=Hind&family=Shippori+Antique+B1&display=swap');
+#section_std {
+    /* border: red solid 2px; */
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    margin-top: 6.5rem;
+    justify-content: space-between;
+}
+
+.SuggestUser_s {
+    /* position: relative; */
+    /* border: rgb(0, 255, 255) solid 5px; */
+    width: 400px;
+    padding-left: 1rem;
+    height: 100%;
+    /* position: relative; */
+    position: sticky;
+    top: -480px;
+    right: 0;
+    /* 1180 -1240 arası gelıyor  */
+}
+
+.Recommended_topics {
+    /* border: gold solid 4px; */
+    padding: 1.4rem 0.5rem;
+    width: 380px;
+    height: 280px;
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+.Recommended_topics h5 {
+    font-size: 1rem;
+    font-weight: bold;
+    padding-left: 0.3rem;
+}
+
+.Recommended_topics ul {
+    /* border: green solid 1px; */
+    display: flex;
+    padding: 0;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 1.3rem;
+}
+
+.Recommended_topics ul li {
+    background-color: rgba(242, 242, 242, 1);
+    color: rgba(41, 41, 41, 1);
+    padding: 8px 16px;
+    border-radius: 8px;
+    margin: 0.5rem 0.6rem;
+    transition: 350ms ease all;
+}
+
+.Recommended_topics ul li:hover {
+    background-color: rgb(224, 224, 224);
+}
+
+.Recommended_topics ul li a {
+    color: rgba(41, 41, 41, 1);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.7rem;
+}
+
+.Article_Employee {
+    border-right: 1px solid rgba(230, 230, 230, 1);
+    width: 800px;
+    padding: 1rem;
+    padding-right: 3rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+@media only screen and (max-width: 700px) {
+    .Article_Employee {
+        /* border: yellow solid 5px; */
+        width: 100%;
+        padding: 0 1rem;
+    }
+}
+
+.Article {
+    /* border: rgb(117, 153, 51) solid 8px; */
+    position: relative;
+    width: 100%;
+    display: flex;
+    margin: 1.6rem 0;
+    justify-content: space-between;
+}
+
+.Article .sectionOne {
+    /* border: rgb(112, 119, 6) solid 5px; */
+    position: relative;
+    width: 100%;
+    margin-right: 28px;
+}
+
+.sectionOne .article_author {
+    /* border: rgb(255, 196, 0) solid 1px; */
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.9rem;
+    font-family: 'Shippori Antique B1', sans-serif;
+}
+
+.sectionOne .article_author img {
+    margin-right: 10px;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+}
+
+.sectionOne .article_author b {
+    font-size: 0.8rem;
+}
+
+.sectionOne .article_author b a {
+    color: rgb(75, 75, 75);
+    text-decoration: none;
+}
+
+.sectionOne .article_author b a:hover {
+    text-decoration: none;
+}
+
+.sectionOne .article_title {
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+}
+
+.sectionOne .article_title a {
+    text-decoration: none;
+    color: black;
+}
+
+.article_content pre {
+    /* border: gold solid 2px; */
+    width: 100%;
+    white-space: pre-wrap;
+    height: 71px;
+    overflow: hidden;
+    font-size: 0.9rem;
+    font-family: 'Hind', sans-serif;
+    color: rgba(117, 117, 117, 1);
+    /* background-color: wheat; */
+}
+
+.article_content pre a {
+    color: rgba(117, 117, 117, 1);
+}
+
+.article_content a:hover {
+    text-decoration: none;
+}
+
+.article_infos {
+    /* border: rgb(255, 0, 255) solid 2px; */
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-top: -6px;
+}
+
+.article_infos .sec1 {
+    /* border: rgb(55, 0, 255) solid 2px; */
+    width: 87%;
+    display: flex;
+    align-items: center;
+    font-size: 0.7rem;
+    justify-content: space-between;
+    font-family: 'Shippori Antique B1', sans-serif;
+    color: rgb(110, 110, 110);
+}
+
+.sec1 .article_topic {
+    background-color: rgba(242, 242, 242, 1);
+    padding: 3px 7px;
+    border-radius: 6px;
+    transition: 350ms ease all;
+}
+
+.sec1 .article_topic:hover {
+    background-color: rgb(224, 224, 224);
+}
+
+.sec1 .article_topic a {
+    text-decoration: none;
+    color: rgb(110, 110, 110);
+}
+
+
+/* ---------------------- */
+
+.Article .sectionTwo {
+    /* border: rgb(77, 0, 128) solid 3px; */
+    display: flex;
+    align-items: flex-end;
+}
+
+.sectionTwo .article_img {
+    /* border: rgb(14, 207, 207) solid 3px; */
+    width: 250px;
+    height: 175px;
+}
+
+.article_like {
+    /* border: rgb(14, 207, 207) solid 3px; */
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: 6px;
+}
+
+.bi-bookmark-plus,
+.bi-bookmark-fill {
+    cursor: pointer;
+    opacity: 0.8;
+    font-size: 21px;
+    margin-right: 15px
+}
+
+
+/* whoToFollow */
+
+.whoToFollow,
+.RecentlySaved {
+    /* border: red solid 5px; */
+    padding: 1.4rem 0.8rem;
+    width: 380px;
+    height: auto;
+}
+
+.whoToFollow h5,
+.RecentlySaved h5 {
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    padding-left: 0.3rem;
+    margin-bottom: 1rem;
+    margin-top: 0.6rem;
+}
+
+.whoToFollow .userWrap {
+    /* border: yellowgreen solid 3px; */
+    position: relative;
+}
+
+.userWrap .suggestedUser {
+    border-bottom: rgba(230, 230, 230, 0.2) solid 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 5px
+}
+
+.userWrap .suggestedUser .userImageWrap {
+    /* border: blue solid 3px; */
+    position: relative;
+    padding-top: 10px;
+}
+
+.userWrap .suggestedUser img {
+    width: 45px;
+    height: 45px;
+    margin-right: 11px;
+    border-radius: 50%;
+}
+
+.suggestedUser .introduce {
+    /* border: rgb(255, 0, 242) solid 2px; */
+    position: relative;
+    width: 100%
+}
+
+.suggestedUser .introduce h3 {
+    font-size: 1rem;
+    font-family: 'Balsamiq Sans', cursive;
+    padding-top: 10px;
+    margin-bottom: 0.3rem;
+}
+
+.suggestedUser .introduce h3 a {
+    color: rgb(32, 32, 32);
+    text-decoration: none;
+}
+
+.suggestedUser .introduce h3 a:hover {
+    text-decoration: none;
+}
+
+.suggestedUser .introduce p {
+    font-size: 0.7rem;
+    color: gray;
+    font-family: 'Hind', sans-serif;
+}
+
+.suggestedUser .followBtn {
+    background-color: white;
+    outline: 0;
+    border: 1px solid rgb(73, 73, 73);
+    border-radius: 10px;
+    padding: 0.4rem 0.7rem;
+    font-size: 0.7rem;
+    font-family: 'Mukta', sans-serif;
+    font-weight: 560;
+    margin: 20px 10px;
+    margin-left: 2rem !important;
+    color: rgb(73, 73, 73);
+}
+
+.suggestedUser .followBtn:hover {
+    border: 1px solid black;
+    color: black;
+}
+
+
+/* recently saved story  -request.user */
+
+.savedStories {
+    /* border: green solid 2px; */
+    position: relative;
+    margin-top: 25px;
+}
+
+.savedStories .savedStory {
+    border: transparent solid 2px;
+    margin-bottom: 22px;
+}
+
+.savedStory .wrap_1 {
+    display: flex;
+    align-items: center;
+}
+
+.savedStory .wrap_1 img {
+    width: 22px;
+    height: 22px;
+    margin-right: 9px;
+    border-radius: 50%;
+}
+
+.savedStory .wrap_1 b {
+    font-size: 0.7rem;
+    font-family: 'Mukta ', sans-serif;
+    font-weight: 550;
+    color: rgb(92, 92, 92);
+}
+
+.savedStory .wrap_2 {
+    font-family: 'Balsamiq Sans', cursive;
+    margin: 7px 0;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: black;
+}
+
+.savedStory .wrap_3 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 550;
+    color: gray;
+    font-size: 0.7rem;
+}
+
+.RecentlySaved .SeeAll a {
+    font-weight: bold;
+    font-family: 'Mukta', sans-serif;
+    color: rgba(26, 137, 23, 1);
+    font-size: 0.9rem;
+    margin-top: 15px;
+}

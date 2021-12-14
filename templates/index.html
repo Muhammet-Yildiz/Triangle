@@ -1,0 +1,256 @@
+{% extends 'layout.html' %} {% load static %} {% block script %}
+
+<script src="{% static 'js/index.js'   %}"></script>
+<script src="{% static 'js/follow.js'   %}"></script>
+
+{% endblock script %} {% block static %}
+
+<link rel="stylesheet" href="{% static 'css/index.css'   %}">{% endblock static %} {% block body %} {% include "includes/Navbar.html" %}
+
+<main>
+
+
+
+    <section id="section_std">
+
+
+        <div class="Article_Employee">
+
+            {% for article in articles %}
+
+            <div class="Article">
+
+                <div class="sectionOne">
+
+                    <div class="article_author">
+
+                        <img src="{{article.author.profile.profile_image.url}}" alt="{{article.author.profile}}">
+                        <b>
+                            <a href="{% url 'about' article.author %}">
+                                {{article.author|title}}
+                            </a>
+                    </b>
+
+                    </div>
+
+                    <div class="article_title">
+
+                        <a href="story/{{article.author}}/{{article.slug}}/{{article.id}}">
+                    {{article.title|title|truncatewords:13}}
+                    </a>
+
+
+
+                    </div>
+                    <div class="article_content">
+                        <a href="story/{{article.author}}/{{article.slug}}/{{article.id}}">
+                            <pre>{{article.content|safe|truncatewords:25}}
+                    </pre>
+                        </a>
+
+                    </div>
+                    <div class="article_infos">
+
+                        <div class="sec1">
+
+                            <div class="created_date">
+                                {{article.created_date|date:" M d "}}
+                            </div>
+                            <span>-</span>
+                            <div class="readDuration">
+                                {{article.readDuration}} min read
+                            </div>
+                            <span>-</span>
+
+                            <div class="article_topic">
+                                <a href="/tag/{{article.topic.all.first.slug}}">
+
+                                {{article.topic.all.first}}
+                            </a>
+
+
+                            </div>
+                            <span>-</span>
+                            <div class="recommed">
+                                {{article.recommed}}
+                            </div>
+                        </div>
+
+                        {% if request.user.is_authenticated %}
+
+                        <div class="article_like">
+                            {% if request.user in article.readList.all %}
+                            <i class="bi bi-bookmark-fill addBookmarkIcon" data-id="{{article.id}}"></i> {% else %}
+                            <i class="bi bi-bookmark-plus addBookmarkIcon" data-id="{{article.id}}"></i> {% endif %}
+
+
+                        </div>
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+                <div class="sectionTwo">
+
+                    {% if article.article_image %}
+
+                    <a href="story/{{article.author}}/{{article.slug}}/{{article.id}}">
+
+                        <img class="article_img" src=" {{article.article_image.url}}" alt=" {{article.title}}">
+
+                    </a>
+
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+            {% endfor %}
+
+
+        </div>
+
+
+        <div class="SuggestUser_s">
+            <div class="Recommended_topics">
+
+                <h5>
+                    Recommended Topics
+                </h5>
+
+                <ul>
+
+                    {% for topic in topics %}
+
+                    <li>
+                        <a href="/tag/{{topic.slug}}">
+                    {{topic}}
+                </a>
+                    </li>
+
+
+                    {% endfor %}
+                </ul>
+
+
+
+
+            </div>
+
+            <div class="whoToFollow">
+
+                {% if request.user.is_authenticated %}
+                <h5>Who to follow</h5>
+                {% else %}
+                <h5>Login to follow</h5>
+
+                {% endif %}
+
+
+                <div class="userWrap">
+
+                    {% for user in followUsers %}
+
+                    <div class="suggestedUser">
+                        <div class="userImageWrap">
+
+                            <img src="{{user.profile.profile_image.url}}" alt="{{user.username}}">
+                        </div>
+
+                        <div class="introduce">
+                            <h3>
+                                <a href="/about/@{{user.username}}">
+
+                                    {{user.username|title}}
+                                </a>
+                            </h3>
+
+                            {% if user.profile.introduce %}
+                            <p>{{user.profile.introduce|truncatewords:10}} </p>
+                            {% else %}
+                            <p>???</p>
+                            {% endif %}
+
+                        </div>
+
+
+                        {% if request.user.is_authenticated %} {% if user in request.user.profile.following.all %}
+                        <button class="followButton followBtn" data-from={{request.user}} data-to={{user}} style="background-color: black; color:white">
+                             Following
+                         </button> {% else %}
+                        <button class="followButton followBtn" data-from={{request.user}} data-to="{{user}}" style="background-color:white; color:black">
+                             Follow
+                         </button> {% endif %} {% endif %}
+
+
+
+
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+
+            {% if readList %}
+
+
+            <div class="RecentlySaved">
+                <h5>Recently Saved</h5>
+                <div class="savedStories">
+                    {% for story in readList|slice:":4" %}
+
+                    <div class="savedStory">
+                        <a href="/about/@{{story.author}}">
+                            <div class="wrap_1">
+                                <img src="{{story.author.profile.profile_image.url}}" alt="{{story.article_image.url}}">
+                                <b>{{story.author|title}}</b>
+                            </div>
+                        </a>
+                        <a href="/story/{{story.author}}/{{story.slug}}/{{story.id}}">
+
+                            <div class="wrap_2">
+                                {{story.title}}
+                            </div>
+                        </a>
+
+                        <div class="wrap_3">
+                            <span>  {{story.created_date|date:" M d "}}</span>
+                            <span>-</span>
+                            <span>{{story.readDuration}} min read</span>
+                        </div>
+
+                    </div>
+
+                    {% endfor %}
+
+
+                    <div class="SeeAll">
+                        <a href="/readList/@{{request.user}}">
+                            See all ( {{readList|length}} )
+                        </a>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+            {% endif %}
+
+        </div>
+
+
+
+    </section>
+
+
+
+</main>
+
+
+{% endblock body %}

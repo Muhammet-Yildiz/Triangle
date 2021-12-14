@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Varela+Round&display=swap');
+.BigEmp {
+    /* border: red solid 5px; */
+    width: 620px;
+    margin: 0 auto;
+    height: 100vh;
+}
+
+.followersNum {
+    margin-bottom: 1.6rem;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.BigEmp ul {
+    /* border: blue solid 2px; */
+    padding: 0;
+}
+
+.BigEmp ul li {
+    border-top: 1px solid rgb(235, 235, 235);
+    height: 126px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.BigEmp ul li:last-child {
+    border-bottom: 1px solid rgb(235, 235, 235);
+}
+
+.BigEmp ul li .imgWrap {
+    margin-right: 15px;
+    margin-top: 23px;
+}
+
+.BigEmp ul li .imgWrap img {
+    border-radius: 50%;
+}
+
+.username-detail {
+    /* border: green solid 2px; */
+    height: 100%;
+    width: 450px;
+    padding-top: 23px;
+}
+
+.username-detail b {
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 1.3rem;
+    line-height: 55px;
+}
+
+.username-detail b a {
+    color: black;
+}
+
+.username-detail p {
+    font-size: 1rem;
+    color: rgb(59, 59, 59);
+}
+
+.followButton {
+    background-color: rgb(172, 81, 208);
+    border: rgb(153, 67, 187) solid 2px;
+    padding: 7px 13px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: white;
+    border-radius: 20px;
+    margin-bottom: 1.2rem;
+    transition: 350ms ease;
+    outline: 0;
+    margin-top: 16px;
+}
+
+.followButton:hover {
+    background-color: rgb(153, 60, 190);
+    outline: 0
+}
+
+.BtnWrap {
+    display: flex;
+    justify-content: center;
+    /* border: rgb(153, 67, 187) solid 2px; */
+    width: 100px;
+    height: 80px;
+    margin-top: 15px;
+}

@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700;900&family=IBM+Plex+Serif&family=Merriweather:wght@300&family=Secular+One&display=swapBalsamiq+Sans:wght@700&family=Be+Vietnam+Pro:wght@300&family=Hind&family=Shippori+Antique+B1&display=swap&family=Signika+Negative:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Signika+Negative:wght@500&display=swap');
+:root {
+    --first: rgb(18, 108, 168);
+    --hover: rgb(1, 90, 163);
+}
+
+.Bigwrap {
+    /* border: red solid 5px; */
+    width: 620px;
+    margin: 0 auto;
+}
+
+.Bigwrap h2 {
+    font-family: 'Secular One', sans-serif;
+    font-weight: bold;
+    font-size: 2.1rem;
+    margin-bottom: 1.6rem
+}
+
+.userReadInfo {
+    /* border: green solid 2px; */
+    display: flex;
+    position: relative;
+    margin-bottom: 3.1rem
+}
+
+.userReadInfo .bi-three-dots {
+    position: absolute;
+    right: 6px;
+    top: 5px;
+    font-size: 1.6rem;
+}
+
+.userReadInfo .img {
+    margin-right: 1rem;
+}
+
+.userReadInfo .img img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.userReadInfo .medium {
+    /* border: rgb(0, 81, 128) solid 2px; */
+    position: relative;
+    padding: 0;
+    width: 180px;
+}
+
+.userReadInfo .medium b {
+    font-family: 'Shippori Antique B1', sans-serif;
+    font-size: 0.9rem;
+    padding-top: -0.3rem;
+    display: block;
+}
+
+.userReadInfo .medium b a {
+    color: var(--first)
+}
+
+.userReadInfo .medium .wrp {
+    display: flex;
+    font-family: 'Shippori Antique B1', sans-serif;
+    font-size: 0.8rem;
+    margin-top: 7px;
+    color: rgb(78, 77, 77);
+    /* border: rgb(0, 81, 128) solid 2px; */
+    align-items: center;
+}
+
+.wrp .nowDate {
+    margin-right: 6px;
+}
+
+.wrp span {
+    margin: 0 4px;
+}
+
+.wrp .stories {
+    /* border: rgb(0, 128, 85) solid 2px; */
+    display: flex;
+    align-items: center
+}
+
+.wrp .stories div {
+    margin-top: -6px;
+    margin-left: 10px
+}
+
+.wrp .stories div i {
+    font-size: 0.8rem;
+}
+
+
+/* ------------------------- */
+
+.storyEmp {
+    /* border: blue solid 3px; */
+    position: relative;
+}
+
+.storyEmp .story {
+    /* border: green solid 3px; */
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    border-bottom: rgb(236, 236, 236) 1px solid;
+    padding-bottom: 1.6rem;
+}
+
+.storyEmp .storyTop {
+    /* border: rgb(128, 0, 70) solid 3px; */
+    display: flex;
+    width: 350px;
+    margin-bottom: 10px;
+    font-family: 'Signika Negative', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.storyEmp .storyTop a {
+    color: black;
+}
+
+.storyEmp .storyTop span {
+    margin: 0 6px;
+}
+
+.storyTop .starIcon {
+    margin-top: 1px;
+    margin-left: 12px;
+    color: rgb(77, 77, 77);
+    font-size: 10px;
+}
+
+.storyMed {
+    /* border: rgb(128, 0, 70) solid 3px; */
+    position: relative;
+}
+
+.storyMed .storyTitle {
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+}
+
+.storyMed .storyTitle a {
+    color: rgb(49, 49, 49);
+    font-family: 'Acme', sans-serif;
+    font-weight: 550;
+}
+
+.storyMed .storyContent {
+    font-family: 'IBM Plex Serif', serif;
+    font-size: 0.9rem;
+}
+
+.storyBottom {
+    /* border: rgb(73, 128, 0) solid 3px; */
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.storyBottom a {
+    font-size: 0.8rem;
+    font-family: 'Mukta' sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--first);
+}
+
+.storyBottom a:hover {
+    text-decoration: none;
+    color: var(--hover);
+}
+
+.storyBottom div span {
+    margin: 0 5px;
+}
+
+.story section .storyImageWrap {
+    width: 120px;
+    height: 100%;
+    margin-left: 2rem;
+    /* border: red solid 2px; */
+    padding-top: 10px;
+    position: relative;
+}
+
+.story section .storyImageWrap img {
+    width: 110px;
+    height: 110px;
+    position: absolute;
+    right: 0;
+}
+
+.story section:first-child {
+    /* border: red solid 2px; */
+    width: 100%;
+}
+
+.storyDot {
+    cursor: pointer;
+}
+
+.itemOptions {
+    /* border: red solid 2px; */
+    width: 120px;
+    height: 59px;
+    position: absolute;
+    top: 30px;
+    right: -65px;
+    z-index: 6;
+    background-color: white;
+    /* box-shadow: 0 0 4px 3px rgb(209, 209, 209); */
+    border: 1px solid rgba(230, 230, 230, 1);
+    border-radius: 4px;
+    display: none;
+}
+
+.itemOptions ul {
+    /* border: red solid 2px; */
+    width: 100%;
+    height: 100%;
+    padding: 20px 15px;
+}
+
+.itemOptions ul li {
+    font-size: 0.8rem;
+    font-family: 'Mukta', sans-serif;
+    font-weight: 550;
+    color: rgb(117, 117, 117);
+    transition: 350ms ease;
+    cursor: pointer;
+}
+
+.itemOptions ul li:hover {
+    color: rgb(49, 49, 49);
+}

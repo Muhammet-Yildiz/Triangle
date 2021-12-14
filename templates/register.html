@@ -1,0 +1,46 @@
+{% extends 'layout.html' %} {% load static %} {% block static %}
+
+<link rel="stylesheet" href="/static/css/register.css"> {% endblock static %} {% block script %}
+
+<script src="/static/js/register.js"></script>
+
+{% endblock script %} {% block body %}
+
+<div class="emp2">
+
+    <h2 class="logo_h">
+        <a href="/">
+            <img src="{% static 'Image/logo.png'%}" alt="logo_pic">
+        </a>
+    </h2>
+
+    <div class="form-wrapper">
+
+        <div class="form-header">
+
+            <span> 
+            <a href="/login" style="color: black;text-decoration :none;opacity:0.8">
+                Giriş yap
+            </a>
+            </span>
+            <span> 
+                    Kayıt ol
+            </span>
+        </div>
+
+
+
+        <form method="post">
+
+
+            {% csrf_token %} {{form}}
+
+            <button type="submit" id="registerBtn">Kayıt Ol  </button>
+
+        </form>
+
+
+    </div>
+
+</div>
+{% endblock body %} {% block title %} Kayıt Ol {% endblock title %}

@@ -1,0 +1,49 @@
+{%extends 'layout.html' %} {% load static %} {% block title %} People following {{user}} {% endblock title %} {% block static %}
+
+<link rel="stylesheet" href="{% static 'css/userFollowersPage.css' %}"> {% endblock static %} {% block body %} {% include "includes/aboutNavbar.html" %}
+
+
+<div class="BigEmp">
+
+    <div class="followersNum">
+        {{followers.count}} Followers
+
+    </div>
+    <ul>
+        {% for user in followers %} {% if user != request.user %}
+
+        <li>
+            <div class="imgWrap">
+                <img src=" {{user.profile.profile_image.url}}" alt="{{user}}" width="55">
+            </div>
+            <div class="username-detail">
+                <b>
+                    <a href="/about/@{{user.username}}">
+                        {{user.username}}
+                    </a>
+                </b> {% if user.profile.introduce %}
+                <p>{{user.profile.introduce|truncatewords:6}}</p>
+
+                {% endif %}
+
+
+            </div>
+            <div class="BtnWrap">
+                {% if user in request.user.profile.following.all %}
+
+                <button class="followButton" data-from={{request.user}} data-to={{user}} style="background-color: white; color:rgb(172, 81, 208)">
+                Following
+            </button> {% else %}
+
+                <button class="followButton" data-from={{request.user}} data-to="{{user}}" style="background-color: rgb(172, 81, 208); color:white">
+                Follow
+            </button> {% endif %}
+            </div>
+        </li>
+        {% endif %} {% endfor %}
+
+    </ul>
+
+</div>
+
+{% endblock body %}

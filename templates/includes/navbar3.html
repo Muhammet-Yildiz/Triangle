@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/navbar3.css">
+    <link rel="stylesheet" href="/static/css/navbar2.css">
+
+</head>
+
+<body>
+
+    {% load static %}
+    <header>
+        <div class="employee">
+
+            <div class="top_s1">
+
+                <h2>
+                    <a href="/stories/@{{request.user}}">
+
+                        {{request.user|title}}
+
+                    </a>
+                </h2>
+
+
+                <div class="About">
+                    <a href="/about/@{{request.user}}">
+                        About
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="top_s2">
+                <form class="searchField" method="GET" action="/search">
+                    <button type="submit">
+                        <img src="{% static 'Svg/searchIcon.svg' %}" alt="search" width="20" style="margin-top: 2px;">
+
+                    </button>
+
+                    <input type="text" placeholder="Search Story" name="q" id="searchTerm">
+                </form>
+
+
+                <div class="userOptions">
+
+
+                    <div class="userImage">
+
+
+                        <img src="{{user.profile.profile_image.url}}" alt="user-photo">
+
+                    </div>
+
+                    <div class="dropdownWrap">
+
+                        <div class="top_info">
+
+
+                            <img src="{{user.profile.profile_image.url}}" alt="user-photo" width="30">
+
+                            <div class="info_s">
+                                <h5>{{request.user.username|title }}</h5>
+                                <h6> @{{request.user.email|truncatechars:11 }}</h6>
+                            </div>
+                        </div>
+
+                        <ul>
+                            <li>
+
+                                <a href="/new-story">
+                                    Write a story
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/stories/@{{request.user}}">
+                                    Stories
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/about/@{{request.user}}">
+                                    About You
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/logout">
+                                    Sign Out
+                                </a>
+                            </li>
+                        </ul>
+
+                        <div class="btm_inf">
+
+                            <li>
+                                <a href="#">
+                                    Privacy
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Terms
+                                </a>
+                            </li>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <a href="/">
+                    <img src="{% static 'Image/triangle_icon.png' %}" alt="triangle">
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+    </header>
+
+
+</body>
+<script src="../../static/js/jquery-3.2.1.min.js"></script>
+
+<script src="../../static/js/navbar.js"></script>
+
+
+</html>

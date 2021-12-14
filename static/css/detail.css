@@ -1,0 +1,450 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700;900&family=IBM+Plex+Serif&family=Merriweather:wght@300&family=Secular+One&display=swap');
+.Employee_detail {
+    /* border: blue solid 6px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: relative
+}
+
+.ContentBigWrap {
+    /* border: green solid 6px; */
+    width: 750px;
+    padding-bottom: 1rem;
+}
+
+@media only screen and (max-width: 760px) {
+    .ContentBigWrap {
+        width: 100%;
+        padding: 0 1rem;
+    }
+}
+
+.ContentBigWrap .title_Article {
+    font-weight: bold;
+    font-size: 2.5rem;
+    font-family: 'Secular One', sans-serif;
+    line-height: 55px;
+    margin-bottom: 1.6rem;
+    /* font-family: 'Be Vietnam Pro', sans-serif; */
+}
+
+.ContentBigWrap .item_swr,
+.item_bttm {
+    /* border: gold solid 2px; */
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 1.6rem;
+}
+
+.item_swr .sec1 {
+    /* border: rgb(30, 255, 0) solid 2px; */
+    display: flex;
+    align-items: center;
+    width: 70%;
+    font-size: 0.8rem;
+}
+
+.item_swr .sec1 img {
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.item_swr .sec1 b {
+    font-family: 'Mukta', sans-serif;
+    font-weight: 550;
+    margin-right: 14px;
+    color: rgb(172, 81, 208);
+}
+
+.item_swr .sec1 span {
+    margin: 0 5px;
+}
+
+.item_swr .sec1 div {
+    font-weight: 500;
+    color: gray;
+    margin-top: -2px;
+}
+
+.item_swr .sec2 {
+    /* border: rgb(0, 225, 255) solid 2px; */
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.item_swr .sec2 .followNumber {
+    margin-right: 14px !important;
+}
+
+.item_swr .sec2 .clapBtn,
+.item_bttm .sec1 .clapBtn,
+.fixedUserInfo .votingField .clapBtn {
+    background-color: white;
+    border: none;
+    transition: 250ms ease;
+    margin-right: 3px;
+    margin-left: 15px;
+    opacity: 0.8;
+}
+
+.clapBtn:hover {
+    color: red !important;
+}
+
+.clapBtn:focus {
+    outline: 0;
+}
+
+.item_swr .sec2 i {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+.articleBigImage {
+    /* border: green solid 5px; */
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.articleBigImage img {
+    width: 100%;
+    height: 380px;
+}
+
+.articleContent p {
+    font-family: 'PT Serif', serif;
+    font-size: 1.2rem;
+    color: rgba(41, 41, 41, 1);
+    font-family: 'Merriweather', serif;
+    font-family: 'IBM Plex Serif', serif;
+}
+
+.articleContent img,
+.articleContent figure,
+.articleContent video,
+.articleContent iframe {
+    width: 100% !important;
+    margin: 6px 0;
+    max-height:500px ;
+    /* border: yellow solid 5px; */
+}
+
+.articleContent h1 {
+    margin-bottom: 1.2rem;
+    margin-top: 2rem;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 2.1rem;
+    font-weight: 550;
+    color: rgba(41, 41, 41, 1);
+}
+
+.articleContent h2 {
+    margin-bottom: 1.4rem;
+    margin-top: 1.5rem;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 550;
+    color: rgba(41, 41, 41, 1);
+}
+
+.articleContent pre {
+    background-color: rgba(242, 242, 242, 1);
+    padding: 1rem;
+}
+
+.articleContent a {
+    color: black;
+    text-decoration: underline;
+    margin: 0 3px;
+}
+
+.articleContent a:hover {
+    color: rgb(172, 81, 208);
+}
+
+.articleContent li {
+    padding: 5px 10px;
+}
+
+.articleContent li a {
+    font-size: 1.2rem;
+}
+
+.articleContent blockquote {
+    border-left: gray solid 5px;
+    margin-left: 15px;
+    padding-left: 15px;
+}
+
+.articleContent blockquote p {
+    font-size: 1.1rem;
+}
+
+.tagsArticleWrap {
+    /* border: red solid 2px; */
+    width: 100%;
+    position: relative;
+    height: auto;
+}
+
+.tagsArticleWrap ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    /* border: red solid 2px; */
+    margin-top: 2rem;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+.tagsArticleWrap ul li {
+    padding: 7px 20px;
+    background-color: rgba(242, 242, 242, 1);
+    color: rgba(117, 117, 117, 1);
+    margin-right: 2.2rem;
+    border-radius: 4px;
+    transition: 350ms ease;
+    margin-bottom: 1rem;
+}
+
+.tagsArticleWrap ul li:hover {
+    background-color: rgb(233, 233, 233);
+}
+
+.tagsArticleWrap ul li a {
+    color: rgba(117, 117, 117, 1);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.tagsArticleWrap ul li a:hover {
+    text-decoration: none
+}
+
+.item_bttm {
+    margin-top: 2.2rem;
+}
+
+.item_bttm .sec1 {
+    /* border: red solid 2px; */
+    display: flex;
+}
+
+.followNumber {
+    font-size: 1.1rem;
+    font-family: 'Times New Roman', Times, serif;
+    margin-right: 2.5rem;
+    margin-top: 8px;
+    margin-left: 1px;
+    color: rgb(99, 99, 99);
+}
+
+
+/* .item_bttm .sec1 .followNumber {
+    margin-right: 1.3rem;
+    margin-top: 6px;
+} */
+
+.item_bttm .sec1 .clapBtn {
+    margin: 0
+}
+
+.item_bttm .sec1 .bi-chat {
+    font-size: 1.3rem;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+.item_bttm .sec2 {
+    font-size: 1.3rem;
+}
+
+.item_bttm .sec2 a {
+    margin: 0 10px;
+    color: rgb(172, 81, 208);
+    text-decoration: none;
+}
+
+.item_bttm .sec2 .bi-bookmark-plus,
+.item_bttm .sec2 .bi-bookmark-fill {
+    margin-left: 10px;
+    font-size: 1.4rem;
+}
+
+.bi-bookmark-fill,
+.bi-bookmark-plus {
+    cursor: pointer;
+}
+
+
+/* BURDAYIZ ----------------------- */
+
+.fixedUserInfo {
+    /* border: red solid 1px; */
+    width: 220px;
+    height: auto;
+    position: fixed;
+    left: 110px;
+    top: 170px;
+    height: 350px;
+    opacity: 0;
+    transition: 350ms ease opacity;
+}
+
+@media only screen and (max-width: 1330px) {
+    .fixedUserInfo {
+        display: none;
+    }
+}
+
+
+/* BURDAYIZ ----------------------- */
+
+.fixedUserInfo b {
+    font-family: 'Mukta', sans-serif;
+    font-weight: 550;
+}
+
+.fixedUserInfo .fix_top {
+    /* border :red solid 1px ;  */
+    display: flex;
+    align-items: center;
+}
+.fixedUserInfo .fix_top b{
+    color :black ; 
+}
+
+
+.fixedUserInfo .fix_top img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.fixedUserInfo .clapBtn {
+    margin-left: 0 !important;
+    opacity: 0.8;
+}
+
+.fixedUserInfo .clapBtn svg {
+    width: 23px !important;
+}
+
+.fixedUserInfo p {
+    margin-top: 9px;
+    color: rgb(110, 110, 110);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 0.8rem;
+}
+
+.fixedUserInfo .followButton {
+    background-color: rgb(172, 81, 208);
+    border: rgb(153, 67, 187) solid 2px;
+    padding: 7px 13px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: white;
+    border-radius: 20px;
+    margin-bottom: 1.2rem;
+    transition: 350ms ease;
+    outline : 0 
+
+}
+
+.fixedUserInfo .followButton:hover {
+    background-color: rgb(153, 60, 190);
+    outline : 0 
+
+}
+
+.fixedUserInfo .envelopeBtn {
+    margin-left : 10px ; 
+    border-radius : 50% ; 
+    border :rgb(172, 81, 208) 2px solid ; 
+    background-color: rgb(172, 81, 208);
+    color :white ;
+    padding: 6px 10px  ;
+    font-size: 0.9rem;
+    outline : 0 
+}
+
+
+
+.fixedUserInfo .votingField {
+    border-top: rgb(238, 238, 238) solid 1px;
+    /* border: red solid 3px; */
+    padding-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    opacity: 0.7
+}
+
+.fixedUserInfo .votingField i.bi-chat {
+    margin-left: -0.6rem;
+}
+
+.fixedUserInfo .votingField i {
+    margin: 0 1rem;
+    cursor: pointer;
+}
+
+
+.storyDot {
+    cursor: pointer;
+    font-size :1.5rem !important ; 
+}
+
+.itemOptions {
+    width: 120px;
+    height: 75px;
+    position: absolute;
+    top: 37px;
+    right: -50px;
+    z-index: 6;
+    background-color: white;
+    /* box-shadow: 0 0 4px 3px rgb(209, 209, 209); */
+    border: 1px solid rgba(230, 230, 230, 1);
+    border-radius: 4px;
+    /* border: red solid 2px; */
+    display: none;
+}
+
+.itemOptions ul {
+    /* border: red solid 2px; */
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem 0
+}
+
+.itemOptions ul li {
+    /* border: green solid 2px; */
+    font-size: 0.8rem;
+    font-family: 'Mukta', sans-serif;
+    font-weight: 550;
+    color: rgb(117, 117, 117);
+    transition: 350ms ease;
+    cursor: pointer;
+    align-items: center;
+    text-align: center;
+    margin: 6px 0;
+}
+
+.itemOptions ul li a {
+    color: rgb(117, 117, 117);
+}
+
+.editItem a:hover {
+    color: rgb(194, 194, 12)
+}
+
+.deleteItem:hover {
+    color: red
+}

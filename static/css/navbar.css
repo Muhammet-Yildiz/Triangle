@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Istok+Web&family=Mukta:wght@300&family=Teko&display=swap');
+* {
+    list-style-type: none;
+    box-sizing: border-box;
+}
+
+header {
+    width: 100%;
+    /* border: red solid 2px; */
+    height: 80px;
+    z-index: 99;
+    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* border: rgb(102, 0, 128) solid 5px; */
+    margin-bottom: 2rem;
+    box-shadow: 3px 6px 12px 0 rgb(0 0 0 / 5%);
+    background-color: white;
+}
+
+.employee {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width: 1200px) {
+    .employee {
+        width: 100%;
+        padding: 0 1rem;
+    }
+}
+
+.top_logo {
+    /* border: red solid 1px; */
+    position: relative;
+}
+
+.options {
+    /* border: red solid 3px; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 440px;
+    font-family: 'Teko', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    font-family: 'Istok Web', sans-serif;
+}
+
+.options .registerBtn {
+    background-color: white;
+    border: none;
+}
+
+.options .registerBtn a {
+    color: white;
+    background-color: black;
+    padding: 8px 17px;
+    border-radius: 11px;
+    font-weight: bold;
+}
+
+.options .loginBtn {
+    background-color: white;
+    border: none;
+    margin-right: -2rem;
+}
+
+.options .loginBtn a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.searchField {
+    /* border: yellow solid 3px; */
+    position: relative;
+}
+
+.searchField button {
+    background-color: white;
+    border: none;
+    outline: 0;
+}
+
+.searchField input {
+    outline: 0;
+    padding: 0.6rem;
+    border: none;
+    padding-left: 0.9rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    background-color: rgb(243, 243, 243);
+    margin-left: 3px;
+    font-family: 'Mukta', sans-serif;
+    width: 225px;
+}
+
+.readList img {
+    width: 23px;
+    opacity: 0.6;
+}
+
+.userOptions {
+    position: relative;
+}
+
+.userOptions .userImage {
+    cursor: pointer;
+}
+
+.userOptions .userImage img {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+}
+
+.dropdownWrap {
+    position: absolute;
+    border: rgb(219, 219, 219) solid 2px;
+    border-radius: 6px;
+    display: flex;
+    width: 200px;
+    flex-direction: column;
+    top: 40px;
+    left: -65px;
+    padding: 1rem 0;
+    z-index: 52;
+    background-color: white;
+    font-family: 'Mukta', sans-serif;
+    display: none;
+}
+
+.dropdownWrap .top_info {
+    border-bottom: rgb(219, 219, 219) solid 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    padding-bottom: 0.4rem;
+}
+
+.dropdownWrap .top_info img {
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+}
+
+.dropdownWrap .top_info .info_s {
+    /* border: red solid 1px; */
+    width: 115px;
+}
+
+.dropdownWrap .top_info .info_s h5 {
+    font-size: 0.9rem;
+    padding: 0;
+    margin-bottom: 3px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.dropdownWrap .top_info .info_s h6 {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    font-weight: 500;
+}
+
+.dropdownWrap ul {
+    padding: 10px 0;
+    border-bottom: 1px solid rgb(219, 219, 219);
+}
+
+.dropdownWrap ul li {
+    padding: 0.5rem 1rem;
+}
+
+.dropdownWrap ul li a {
+    color: black;
+    font-family: 'Mukta', sans-serif;
+    font-size: 0.8rem;
+    opacity: 0.8;
+    text-decoration: none;
+    letter-spacing: 0.8px;
+}
+
+.dropdownWrap ul li a:hover {
+    opacity: 1;
+}
+
+.btm_inf {
+    display: flex;
+}
+
+.btm_inf li {
+    font-size: 0.6rem;
+    padding-left: 1rem;
+}
+
+.btm_inf li a {
+    color: black;
+    opacity: 0.7;
+    letter-spacing: 0.8px;
+}

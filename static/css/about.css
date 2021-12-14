@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap');
+.aboutEmp {
+    /* border: red solid 2px; */
+    width: 680px;
+    margin: 5rem auto;
+}
+
+.aboutEmp .wrp1 {
+    /* border: green solid 2px; */
+    display: flex;
+    height: 200px;
+}
+
+.wrp1 .aboutInfo {
+    border-bottom: rgb(235, 235, 235) solid 1px;
+    width: 100%;
+    position: relative;
+}
+
+.wrp1 .aboutInfo h2 {
+    font-size: 1.9rem;
+    color: rgb(46, 46, 46);
+    margin-bottom: 1.8rem;
+    font-weight: 550;
+    font-family: 'Mukta', sans-serif;
+}
+
+.wrp1 .aboutInfo .aboutContent {
+    font-family: 'Source Serif Pro', serif;
+    font-size: 1.1rem;
+}
+
+.wrp1 .ImageWrap {
+    width: 250px;
+    height: 100%;
+    margin-left: 2.5rem;
+    /* border: gold solid 5px; */
+    background-color: rgb(243, 243, 243);
+}
+
+.wrp1 .ImageWrap img {
+    width: 180px;
+    height: 100%;
+}
+
+.aboutEmp .wrp2 {
+    /* border: green solid 5px; */
+    margin-top: 1.2rem;
+}
+
+.aboutEmp .wrp2 .follow {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.aboutEmp .wrp2 .follow a,
+.follow span {
+    color: rgb(172, 81, 208);
+    font-weight: 550;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.aboutEmp .wrp2 .follow a:hover {
+    text-decoration: none;
+}
+
+.aboutEmp .wrp2 .follow span {
+    margin: 0 6px;
+}
+
+.twitterUserInfo {
+    /* border: red solid 2px; */
+    margin-top: 6px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 550;
+    font-size: 0.9rem;
+}
+
+.twitterUserInfo div {
+    margin-right: 15px;
+    display: inline;
+}
+
+.twitterUserInfo i {
+    font-size: 1.2rem;
+    color: rgb(65, 65, 65);
+}

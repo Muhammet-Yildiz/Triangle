@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&family=Be+Vietnam+Pro:wght@300&family=Hind&family=Shippori+Antique+B1&display=swap');
+label {
+    display: none !important;
+}
+
+form {
+    position: relative !important;
+}
+
+.newStoryEmp {
+    /* border: red solid 1px; */
+    margin: 3rem auto;
+    width: 690px;
+    height: auto;
+}
+
+.newStoryEmp form {
+    /* border: blue solid 2px; */
+    width: 100%
+}
+
+.cke_inner.cke_reset {
+    height: 450px !important;
+}
+
+#id_title {
+    width: 100%;
+    height: 55px;
+    outline: 0;
+    border: none;
+    border: rgb(235, 235, 235) solid 1px !important;
+    font-size: 1.4rem;
+    padding-left: 1rem;
+    font-weight: 450;
+    font-family: 'Balsamiq Sans', cursive;
+    border-bottom: none !important;
+}
+
+#cke_1_contents {
+    height: 100% !important;
+}
+
+#id_topic,
+#article_image-clear_id {
+    display: none
+}
+
+#id_title::placeholder {
+    opacity: 0.5
+}
+
+.django-ckeditor-widget {
+    width: 100% !important;
+    border: rgb(235, 235, 235) solid 1px !important;
+    margin-bottom: 1rem important;
+    /* background-color: rgb(235, 235, 235) !important; */
+}
+
+#cke_id_content {
+    border: none;
+    background-color: rgb(235, 235, 235) !important;
+}
+
+#cke_id_contents {
+    background-color: rgb(235, 235, 235) !important;
+}
+
+#cke_1_bottom {
+    display: none;
+}
+
+#cke_1_top {
+    background-color: white !important;
+    border: none !important;
+    border-bottom: rgb(235, 235, 235) solid 1px !important;
+}
+
+.cke_toolbar {
+    color: white !important;
+}
+
+.tagsEmp {
+    /* border: red solid 2px; */
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: auto;
+    flex-wrap: wrap;
+    margin-top: 1.3rem;
+}
+
+.tagsEmp li {
+    background-color: rgb(128, 128, 128);
+    margin-right: 10px;
+    margin-bottom: 1rem;
+    font-size: 0.7rem;
+    font-family: 'Mukta', sans-serif;
+    font-weight: 500;
+    padding: 6px 10px;
+    color: white;
+    opacity: 0.2;
+    cursor: pointer;
+    border-radius: 3px
+}
+
+li.active {
+    background-color: rgb(1, 180, 1);
+    opacity: 1
+}
+
+[type="file"] {
+    width: 100%;
+    height: 200px;
+    display: none;
+}
+
+.StoryImageField {
+    border: rgb(235, 235, 235) solid 1px;
+    width: 100%;
+    height: 240px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    margin-top: 1rem
+}
+
+.StoryImageField i {
+    font-size: 1.3rem;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.StoryImageField .txt {
+    width: 350px;
+    height: auto;
+    /* border :Red solid 2px ;  */
+    margin-top: 14px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.currentlyImage {
+    width: 100%;
+    height: 280px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    margin-top: 2rem;
+    position: relative;
+}
+
+.currentlyImage .absolute {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    opacity: 0.6;
+    font-family: 'Mukta ', sans-serif;
+}
+
+.currentlyImage img {
+    width: 100%;
+    height: 100%;
+}
