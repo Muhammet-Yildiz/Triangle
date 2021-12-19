@@ -1,0 +1,2296 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 14.1
+-- Dumped by pg_dump version 14.1
+
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 228 (class 1259 OID 16534)
+-- Name: article_article; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.article_article (
+    id integer NOT NULL,
+    title character varying(250) NOT NULL,
+    content text NOT NULL,
+    created_date timestamp with time zone NOT NULL,
+    author_id integer NOT NULL,
+    article_image character varying(100),
+    "readDuration" integer,
+    recommed character varying(50) NOT NULL,
+    slug character varying(250),
+    "clapNumber" integer
+);
+
+
+ALTER TABLE public.article_article OWNER TO postgres;
+
+--
+-- TOC entry 239 (class 1259 OID 16970)
+-- Name: article_article_clapUser; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."article_article_clapUser" (
+    id integer NOT NULL,
+    article_id integer NOT NULL,
+    user_id integer NOT NULL
+);
+
+
+ALTER TABLE public."article_article_clapUser" OWNER TO postgres;
+
+--
+-- TOC entry 238 (class 1259 OID 16969)
+-- Name: article_article_clapUser_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public."article_article_clapUser_id_seq"
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public."article_article_clapUser_id_seq" OWNER TO postgres;
+
+--
+-- TOC entry 3556 (class 0 OID 0)
+-- Dependencies: 238
+-- Name: article_article_clapUser_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public."article_article_clapUser_id_seq" OWNED BY public."article_article_clapUser".id;
+
+
+--
+-- TOC entry 227 (class 1259 OID 16533)
+-- Name: article_article_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.article_article_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.article_article_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3557 (class 0 OID 0)
+-- Dependencies: 227
+-- Name: article_article_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.article_article_id_seq OWNED BY public.article_article.id;
+
+
+--
+-- TOC entry 237 (class 1259 OID 16944)
+-- Name: article_article_readList; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."article_article_readList" (
+    id integer NOT NULL,
+    article_id integer NOT NULL,
+    user_id integer NOT NULL
+);
+
+
+ALTER TABLE public."article_article_readList" OWNER TO postgres;
+
+--
+-- TOC entry 236 (class 1259 OID 16943)
+-- Name: article_article_readList_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public."article_article_readList_id_seq"
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public."article_article_readList_id_seq" OWNER TO postgres;
+
+--
+-- TOC entry 3558 (class 0 OID 0)
+-- Dependencies: 236
+-- Name: article_article_readList_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public."article_article_readList_id_seq" OWNED BY public."article_article_readList".id;
+
+
+--
+-- TOC entry 235 (class 1259 OID 16854)
+-- Name: article_article_topic; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.article_article_topic (
+    id integer NOT NULL,
+    article_id integer NOT NULL,
+    topic_id integer NOT NULL
+);
+
+
+ALTER TABLE public.article_article_topic OWNER TO postgres;
+
+--
+-- TOC entry 234 (class 1259 OID 16853)
+-- Name: article_article_topic_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.article_article_topic_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.article_article_topic_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3559 (class 0 OID 0)
+-- Dependencies: 234
+-- Name: article_article_topic_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.article_article_topic_id_seq OWNED BY public.article_article_topic.id;
+
+
+--
+-- TOC entry 233 (class 1259 OID 16847)
+-- Name: article_topic; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.article_topic (
+    id integer NOT NULL,
+    title character varying(100) NOT NULL,
+    slug character varying(250)
+);
+
+
+ALTER TABLE public.article_topic OWNER TO postgres;
+
+--
+-- TOC entry 232 (class 1259 OID 16846)
+-- Name: article_topic_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.article_topic_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.article_topic_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3560 (class 0 OID 0)
+-- Dependencies: 232
+-- Name: article_topic_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.article_topic_id_seq OWNED BY public.article_topic.id;
+
+
+--
+-- TOC entry 216 (class 1259 OID 16421)
+-- Name: auth_group; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.auth_group (
+    id integer NOT NULL,
+    name character varying(150) NOT NULL
+);
+
+
+ALTER TABLE public.auth_group OWNER TO postgres;
+
+--
+-- TOC entry 215 (class 1259 OID 16420)
+-- Name: auth_group_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.auth_group_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.auth_group_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3561 (class 0 OID 0)
+-- Dependencies: 215
+-- Name: auth_group_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.auth_group_id_seq OWNED BY public.auth_group.id;
+
+
+--
+-- TOC entry 218 (class 1259 OID 16430)
+-- Name: auth_group_permissions; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.auth_group_permissions (
+    id integer NOT NULL,
+    group_id integer NOT NULL,
+    permission_id integer NOT NULL
+);
+
+
+ALTER TABLE public.auth_group_permissions OWNER TO postgres;
+
+--
+-- TOC entry 217 (class 1259 OID 16429)
+-- Name: auth_group_permissions_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.auth_group_permissions_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.auth_group_permissions_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3562 (class 0 OID 0)
+-- Dependencies: 217
+-- Name: auth_group_permissions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.auth_group_permissions_id_seq OWNED BY public.auth_group_permissions.id;
+
+
+--
+-- TOC entry 214 (class 1259 OID 16414)
+-- Name: auth_permission; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.auth_permission (
+    id integer NOT NULL,
+    name character varying(255) NOT NULL,
+    content_type_id integer NOT NULL,
+    codename character varying(100) NOT NULL
+);
+
+
+ALTER TABLE public.auth_permission OWNER TO postgres;
+
+--
+-- TOC entry 213 (class 1259 OID 16413)
+-- Name: auth_permission_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.auth_permission_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.auth_permission_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3563 (class 0 OID 0)
+-- Dependencies: 213
+-- Name: auth_permission_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.auth_permission_id_seq OWNED BY public.auth_permission.id;
+
+
+--
+-- TOC entry 220 (class 1259 OID 16437)
+-- Name: auth_user; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.auth_user (
+    id integer NOT NULL,
+    password character varying(128) NOT NULL,
+    last_login timestamp with time zone,
+    is_superuser boolean NOT NULL,
+    username character varying(150) NOT NULL,
+    first_name character varying(150) NOT NULL,
+    last_name character varying(150) NOT NULL,
+    email character varying(254) NOT NULL,
+    is_staff boolean NOT NULL,
+    is_active boolean NOT NULL,
+    date_joined timestamp with time zone NOT NULL
+);
+
+
+ALTER TABLE public.auth_user OWNER TO postgres;
+
+--
+-- TOC entry 222 (class 1259 OID 16446)
+-- Name: auth_user_groups; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.auth_user_groups (
+    id integer NOT NULL,
+    user_id integer NOT NULL,
+    group_id integer NOT NULL
+);
+
+
+ALTER TABLE public.auth_user_groups OWNER TO postgres;
+
+--
+-- TOC entry 221 (class 1259 OID 16445)
+-- Name: auth_user_groups_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.auth_user_groups_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.auth_user_groups_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3564 (class 0 OID 0)
+-- Dependencies: 221
+-- Name: auth_user_groups_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.auth_user_groups_id_seq OWNED BY public.auth_user_groups.id;
+
+
+--
+-- TOC entry 219 (class 1259 OID 16436)
+-- Name: auth_user_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.auth_user_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.auth_user_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3565 (class 0 OID 0)
+-- Dependencies: 219
+-- Name: auth_user_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.auth_user_id_seq OWNED BY public.auth_user.id;
+
+
+--
+-- TOC entry 224 (class 1259 OID 16453)
+-- Name: auth_user_user_permissions; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.auth_user_user_permissions (
+    id integer NOT NULL,
+    user_id integer NOT NULL,
+    permission_id integer NOT NULL
+);
+
+
+ALTER TABLE public.auth_user_user_permissions OWNER TO postgres;
+
+--
+-- TOC entry 223 (class 1259 OID 16452)
+-- Name: auth_user_user_permissions_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.auth_user_user_permissions_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.auth_user_user_permissions_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3566 (class 0 OID 0)
+-- Dependencies: 223
+-- Name: auth_user_user_permissions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.auth_user_user_permissions_id_seq OWNED BY public.auth_user_user_permissions.id;
+
+
+--
+-- TOC entry 226 (class 1259 OID 16512)
+-- Name: django_admin_log; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.django_admin_log (
+    id integer NOT NULL,
+    action_time timestamp with time zone NOT NULL,
+    object_id text,
+    object_repr character varying(200) NOT NULL,
+    action_flag smallint NOT NULL,
+    change_message text NOT NULL,
+    content_type_id integer,
+    user_id integer NOT NULL,
+    CONSTRAINT django_admin_log_action_flag_check CHECK ((action_flag >= 0))
+);
+
+
+ALTER TABLE public.django_admin_log OWNER TO postgres;
+
+--
+-- TOC entry 225 (class 1259 OID 16511)
+-- Name: django_admin_log_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.django_admin_log_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.django_admin_log_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3567 (class 0 OID 0)
+-- Dependencies: 225
+-- Name: django_admin_log_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.django_admin_log_id_seq OWNED BY public.django_admin_log.id;
+
+
+--
+-- TOC entry 212 (class 1259 OID 16405)
+-- Name: django_content_type; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.django_content_type (
+    id integer NOT NULL,
+    app_label character varying(100) NOT NULL,
+    model character varying(100) NOT NULL
+);
+
+
+ALTER TABLE public.django_content_type OWNER TO postgres;
+
+--
+-- TOC entry 211 (class 1259 OID 16404)
+-- Name: django_content_type_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.django_content_type_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.django_content_type_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3568 (class 0 OID 0)
+-- Dependencies: 211
+-- Name: django_content_type_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.django_content_type_id_seq OWNED BY public.django_content_type.id;
+
+
+--
+-- TOC entry 210 (class 1259 OID 16396)
+-- Name: django_migrations; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.django_migrations (
+    id integer NOT NULL,
+    app character varying(255) NOT NULL,
+    name character varying(255) NOT NULL,
+    applied timestamp with time zone NOT NULL
+);
+
+
+ALTER TABLE public.django_migrations OWNER TO postgres;
+
+--
+-- TOC entry 209 (class 1259 OID 16395)
+-- Name: django_migrations_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.django_migrations_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.django_migrations_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3569 (class 0 OID 0)
+-- Dependencies: 209
+-- Name: django_migrations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.django_migrations_id_seq OWNED BY public.django_migrations.id;
+
+
+--
+-- TOC entry 229 (class 1259 OID 16806)
+-- Name: django_session; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.django_session (
+    session_key character varying(40) NOT NULL,
+    session_data text NOT NULL,
+    expire_date timestamp with time zone NOT NULL
+);
+
+
+ALTER TABLE public.django_session OWNER TO postgres;
+
+--
+-- TOC entry 231 (class 1259 OID 16816)
+-- Name: user_profile; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.user_profile (
+    id integer NOT NULL,
+    profile_image character varying(100),
+    user_id integer NOT NULL,
+    introduce character varying(150),
+    "twitterAdress" character varying(150)
+);
+
+
+ALTER TABLE public.user_profile OWNER TO postgres;
+
+--
+-- TOC entry 241 (class 1259 OID 17090)
+-- Name: user_profile_followers; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.user_profile_followers (
+    id integer NOT NULL,
+    profile_id integer NOT NULL,
+    user_id integer NOT NULL
+);
+
+
+ALTER TABLE public.user_profile_followers OWNER TO postgres;
+
+--
+-- TOC entry 240 (class 1259 OID 17089)
+-- Name: user_profile_followers_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.user_profile_followers_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.user_profile_followers_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3570 (class 0 OID 0)
+-- Dependencies: 240
+-- Name: user_profile_followers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.user_profile_followers_id_seq OWNED BY public.user_profile_followers.id;
+
+
+--
+-- TOC entry 243 (class 1259 OID 17097)
+-- Name: user_profile_following; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.user_profile_following (
+    id integer NOT NULL,
+    profile_id integer NOT NULL,
+    user_id integer NOT NULL
+);
+
+
+ALTER TABLE public.user_profile_following OWNER TO postgres;
+
+--
+-- TOC entry 242 (class 1259 OID 17096)
+-- Name: user_profile_following_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.user_profile_following_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.user_profile_following_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3571 (class 0 OID 0)
+-- Dependencies: 242
+-- Name: user_profile_following_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.user_profile_following_id_seq OWNED BY public.user_profile_following.id;
+
+
+--
+-- TOC entry 230 (class 1259 OID 16815)
+-- Name: user_profile_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.user_profile_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.user_profile_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3572 (class 0 OID 0)
+-- Dependencies: 230
+-- Name: user_profile_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.user_profile_id_seq OWNED BY public.user_profile.id;
+
+
+--
+-- TOC entry 3258 (class 2604 OID 16537)
+-- Name: article_article id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.article_article ALTER COLUMN id SET DEFAULT nextval('public.article_article_id_seq'::regclass);
+
+
+--
+-- TOC entry 3263 (class 2604 OID 16973)
+-- Name: article_article_clapUser id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."article_article_clapUser" ALTER COLUMN id SET DEFAULT nextval('public."article_article_clapUser_id_seq"'::regclass);
+
+
+--
+-- TOC entry 3262 (class 2604 OID 16947)
+-- Name: article_article_readList id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."article_article_readList" ALTER COLUMN id SET DEFAULT nextval('public."article_article_readList_id_seq"'::regclass);
+
+
+--
+-- TOC entry 3261 (class 2604 OID 16857)
+-- Name: article_article_topic id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.article_article_topic ALTER COLUMN id SET DEFAULT nextval('public.article_article_topic_id_seq'::regclass);
+
+
+--
+-- TOC entry 3260 (class 2604 OID 16850)
+-- Name: article_topic id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.article_topic ALTER COLUMN id SET DEFAULT nextval('public.article_topic_id_seq'::regclass);
+
+
+--
+-- TOC entry 3251 (class 2604 OID 16424)
+-- Name: auth_group id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_group ALTER COLUMN id SET DEFAULT nextval('public.auth_group_id_seq'::regclass);
+
+
+--
+-- TOC entry 3252 (class 2604 OID 16433)
+-- Name: auth_group_permissions id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_group_permissions ALTER COLUMN id SET DEFAULT nextval('public.auth_group_permissions_id_seq'::regclass);
+
+
+--
+-- TOC entry 3250 (class 2604 OID 16417)
+-- Name: auth_permission id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_permission ALTER COLUMN id SET DEFAULT nextval('public.auth_permission_id_seq'::regclass);
+
+
+--
+-- TOC entry 3253 (class 2604 OID 16440)
+-- Name: auth_user id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_user ALTER COLUMN id SET DEFAULT nextval('public.auth_user_id_seq'::regclass);
+
+
+--
+-- TOC entry 3254 (class 2604 OID 16449)
+-- Name: auth_user_groups id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_user_groups ALTER COLUMN id SET DEFAULT nextval('public.auth_user_groups_id_seq'::regclass);
+
+
+--
+-- TOC entry 3255 (class 2604 OID 16456)
+-- Name: auth_user_user_permissions id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_user_user_permissions ALTER COLUMN id SET DEFAULT nextval('public.auth_user_user_permissions_id_seq'::regclass);
+
+
+--
+-- TOC entry 3256 (class 2604 OID 16515)
+-- Name: django_admin_log id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.django_admin_log ALTER COLUMN id SET DEFAULT nextval('public.django_admin_log_id_seq'::regclass);
+
+
+--
+-- TOC entry 3249 (class 2604 OID 16408)
+-- Name: django_content_type id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.django_content_type ALTER COLUMN id SET DEFAULT nextval('public.django_content_type_id_seq'::regclass);
+
+
+--
+-- TOC entry 3248 (class 2604 OID 16399)
+-- Name: django_migrations id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.django_migrations ALTER COLUMN id SET DEFAULT nextval('public.django_migrations_id_seq'::regclass);
+
+
+--
+-- TOC entry 3259 (class 2604 OID 16819)
+-- Name: user_profile id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_profile ALTER COLUMN id SET DEFAULT nextval('public.user_profile_id_seq'::regclass);
+
+
+--
+-- TOC entry 3264 (class 2604 OID 17093)
+-- Name: user_profile_followers id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_profile_followers ALTER COLUMN id SET DEFAULT nextval('public.user_profile_followers_id_seq'::regclass);
+
+
+--
+-- TOC entry 3265 (class 2604 OID 17100)
+-- Name: user_profile_following id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_profile_following ALTER COLUMN id SET DEFAULT nextval('public.user_profile_following_id_seq'::regclass);
+
+
+--
+-- TOC entry 3535 (class 0 OID 16534)
+-- Dependencies: 228
+-- Data for Name: article_article; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.article_article (id, title, content, created_date, author_id, article_image, "readDuration", recommed, slug, "clapNumber") VALUES (7, 'The Roadmap to Landing Your Next Job as a Software Engineer', '<p data-selectable-paragraph="" id="6c04">After 6 years of ......</p>
+', '2021-12-12 02:03:44.362875+03', 10, '0_QsageitPJ7KEm5j1.png', 6, 'Based on your reading history', 'top-10-trending-reactjs-libraries-of-2021', 1);
+
+
+INSERT INTO public.article_article (id, title, content, created_date, author_id, article_image, "readDuration", recommed, slug, "clapNumber") VALUES (6, 'Most Popular Backend Framework of 2021', '<p data-selectable-paragraph="" id="63d8">Frameworks are considered as .......  </p>
+', '2021-11-27 11:30:55.778069+03', 4, 'popularbackend.png', 4, 'Based on your reading history', 'most-popular-backend-framework-of-2021', 24);
+
+
+INSERT INTO public.article_article (id, title, content, created_date, author_id, article_image, "readDuration", recommed, slug, "clapNumber") VALUES (2, 'The Best VS Code Themes 2022🤩', '<p data-selectable-paragraph="" id="556e">Looking for the best VS Code themes for your next project?  ........ </p>', '2021-11-24 14:08:41.787674+03', 2, 'vscodekapak.jpeg', 8, 'Popular on Triangle', 'the-best-vs-code-themes-2022', 18);
+
+
+INSERT INTO public.article_article (id, title, content, created_date, author_id, article_image, "readDuration", recommed, slug, "clapNumber") VALUES (30, 'Cross-platform mobile apps development in 2021: Xamarin vs React Native vs Flutter vs Kotlin Multiplatform', '<p data-selectable-paragraph="" id="d819">Let&rsquo;s make things clear from the beginning. There is no way in which cross-platform mobile apps can match&nbsp;<strong>native mobile apps in performance</strong>, user, and developer&nbsp;<strong>experience</strong>. ..............</p>', '2021-12-03 00:12:48.359289+03', 1, '1_nMBSfZMu3u9igZ0T5AjKIw.png', 7, 'Popular on Triangle', '14-useful-websites-you-wish-you-knew-earlier', 3);
+
+
+INSERT INTO public.article_article (id, title, content, created_date, author_id, article_image, "readDuration", recommed, slug, "clapNumber") VALUES (4, '10 Interview Questions Every JavaScript Developer Should Know', '<section><p data-selectable-paragraph="" id="22c2">Asking &ldquo;What is the metaverse?&rdquo; is a bit like asking &ldquo;what is the internet&rdquo;? In many ways, they are the same question, community-created 3D worlds, and the right to own and sell digital items and property (aka NFTs).</p> ........ </section>', '2021-11-23 18:43:37.853733+03', 1, 'responsive.jpeg', 12, 'Popular on Triangle', 'the-start-of-a-new-era-for-responsive-web-design', 4);
+
+INSERT INTO public.article_article (id, title, content, created_date, author_id, article_image, "readDuration", recommed, slug, "clapNumber") VALUES (5, 'Top 8 Gantt Chart Software for 2021', '<p data-selectable-paragraph="">This excerpt is part of an extensive review of Gantt chart software. You can read the full article on Paymo&rsquo;s blog:</p> ...........', '2021-11-25 23:09:26.342191+03', 3, '1_6dj18KruNKmYXBZXJtAuBg.png', 13, 'Based on your reading history', 'top-8-gantt-chart-software-for-2021', 7);
+
+
+INSERT INTO public.article_article (id, title, content, created_date, author_id, article_image, "readDuration", recommed, slug, "clapNumber") VALUES (27, 'Top 5 Web Design Agencies in 2021', '<section>
+<p data-selectable-paragraph="" id="df62">A website is the most critical business tool for any company in 2021. Your web presence is also how people see and experience your brand, when online is a way of life.  </p>   ..........  <section>  ', '2021-12-12 02:22:10.096593+03', 11, 'vuefirebase.png', 19, 'Popular on Triangle', 'vue-2-firebase-how-to-build-a-vue-app-with-firebase-authentication-system-in-15-minutes', 0);
+
+
+--
+-- TOC entry 3546 (class 0 OID 16970)
+-- Dependencies: 239
+-- Data for Name: article_article_clapUser; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public."article_article_clapUser" (id, article_id, user_id) VALUES (2, 6, 1);
+INSERT INTO public."article_article_clapUser" (id, article_id, user_id) VALUES (4, 4, 1);
+INSERT INTO public."article_article_clapUser" (id, article_id, user_id) VALUES (7, 7, 1);
+INSERT INTO public."article_article_clapUser" (id, article_id, user_id) VALUES (10, 2, 1);
+INSERT INTO public."article_article_clapUser" (id, article_id, user_id) VALUES (11, 5, 1);
+INSERT INTO public."article_article_clapUser" (id, article_id, user_id) VALUES (13, 1, 1);
+INSERT INTO public."article_article_clapUser" (id, article_id, user_id) VALUES (18, 22, 1);
+INSERT INTO public."article_article_clapUser" (id, article_id, user_id) VALUES (19, 7, 2);
+INSERT INTO public."article_article_clapUser" (id, article_id, user_id) VALUES (20, 7, 3);
+INSERT INTO public."article_article_clapUser" (id, article_id, user_id) VALUES (21, 7, 4);
+INSERT INTO public."article_article_clapUser" (id, article_id, user_id) VALUES (22, 28, 1);
+
+
+--
+-- TOC entry 3544 (class 0 OID 16944)
+-- Dependencies: 237
+-- Data for Name: article_article_readList; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public."article_article_readList" (id, article_id, user_id) VALUES (139, 7, 1);
+INSERT INTO public."article_article_readList" (id, article_id, user_id) VALUES (140, 4, 1);
+INSERT INTO public."article_article_readList" (id, article_id, user_id) VALUES (141, 22, 1);
+INSERT INTO public."article_article_readList" (id, article_id, user_id) VALUES (142, 5, 1);
+INSERT INTO public."article_article_readList" (id, article_id, user_id) VALUES (143, 29, 1);
+INSERT INTO public."article_article_readList" (id, article_id, user_id) VALUES (144, 2, 1);
+INSERT INTO public."article_article_readList" (id, article_id, user_id) VALUES (55, 7, 2);
+INSERT INTO public."article_article_readList" (id, article_id, user_id) VALUES (56, 7, 3);
+INSERT INTO public."article_article_readList" (id, article_id, user_id) VALUES (57, 7, 4);
+
+
+--
+-- TOC entry 3542 (class 0 OID 16854)
+-- Dependencies: 235
+-- Data for Name: article_article_topic; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (5, 2, 4);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (6, 4, 10);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (7, 1, 11);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (9, 5, 2);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (10, 5, 3);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (11, 5, 4);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (12, 6, 3);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (13, 6, 9);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (14, 6, 12);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (15, 6, 13);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (16, 6, 14);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (17, 7, 9);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (18, 7, 14);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (19, 7, 15);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (20, 7, 16);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (21, 7, 17);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (88, 6, 19);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (89, 27, 11);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (90, 27, 18);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (91, 27, 19);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (92, 28, 7);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (93, 28, 9);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (94, 28, 23);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (95, 28, 24);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (96, 28, 25);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (97, 29, 9);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (98, 29, 26);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (99, 29, 27);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (100, 29, 28);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (101, 29, 29);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (102, 30, 32);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (103, 30, 33);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (104, 30, 30);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (105, 30, 31);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (106, 22, 9);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (67, 22, 6);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (68, 22, 18);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (69, 22, 19);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (70, 22, 20);
+INSERT INTO public.article_article_topic (id, article_id, topic_id) VALUES (71, 22, 21);
+
+
+--
+-- TOC entry 3540 (class 0 OID 16847)
+-- Dependencies: 233
+-- Data for Name: article_topic; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.article_topic (id, title, slug) VALUES (21, 'Tools', 'tools');
+INSERT INTO public.article_topic (id, title, slug) VALUES (17, 'Web Development', 'web-development');
+INSERT INTO public.article_topic (id, title, slug) VALUES (20, 'Loud', 'loud');
+INSERT INTO public.article_topic (id, title, slug) VALUES (19, 'Web', 'web');
+INSERT INTO public.article_topic (id, title, slug) VALUES (18, 'Design', 'design');
+INSERT INTO public.article_topic (id, title, slug) VALUES (16, 'Programming', 'programming');
+INSERT INTO public.article_topic (id, title, slug) VALUES (15, 'Software Engineering', 'software-engineering');
+INSERT INTO public.article_topic (id, title, slug) VALUES (14, 'Software Development', 'software-development');
+INSERT INTO public.article_topic (id, title, slug) VALUES (13, 'Backend', 'backend');
+INSERT INTO public.article_topic (id, title, slug) VALUES (12, 'Python', 'python');
+INSERT INTO public.article_topic (id, title, slug) VALUES (11, 'Responsive Web Design', 'responsive-web-design');
+INSERT INTO public.article_topic (id, title, slug) VALUES (10, 'Metaverse', 'metaverse');
+INSERT INTO public.article_topic (id, title, slug) VALUES (9, 'Javascript', 'javascript');
+INSERT INTO public.article_topic (id, title, slug) VALUES (8, 'ExpressJS', 'expressjs');
+INSERT INTO public.article_topic (id, title, slug) VALUES (7, 'React', 'react');
+INSERT INTO public.article_topic (id, title, slug) VALUES (6, 'Productivity', 'productivity');
+INSERT INTO public.article_topic (id, title, slug) VALUES (5, 'Technology', 'technology');
+INSERT INTO public.article_topic (id, title, slug) VALUES (4, 'VScode', 'vscode');
+INSERT INTO public.article_topic (id, title, slug) VALUES (3, 'NodeJS', 'nodejs');
+INSERT INTO public.article_topic (id, title, slug) VALUES (2, 'Business', 'business');
+INSERT INTO public.article_topic (id, title, slug) VALUES (23, 'Libraries', 'libraries');
+INSERT INTO public.article_topic (id, title, slug) VALUES (24, 'Material Ui', 'material-ui');
+INSERT INTO public.article_topic (id, title, slug) VALUES (25, 'React Query', 'react-query');
+INSERT INTO public.article_topic (id, title, slug) VALUES (26, 'Vuejs', 'vuejs');
+INSERT INTO public.article_topic (id, title, slug) VALUES (27, 'Firebase', 'firebase');
+INSERT INTO public.article_topic (id, title, slug) VALUES (28, 'Firebaseauthentication', 'firebaseauthentication');
+INSERT INTO public.article_topic (id, title, slug) VALUES (29, 'Vue Router', 'vue-router');
+INSERT INTO public.article_topic (id, title, slug) VALUES (30, 'Kotlin', 'kotlin');
+INSERT INTO public.article_topic (id, title, slug) VALUES (31, 'React Native', 'react-native');
+INSERT INTO public.article_topic (id, title, slug) VALUES (32, 'Flutter', 'flutter');
+INSERT INTO public.article_topic (id, title, slug) VALUES (33, 'Xamarin', 'xamarin');
+
+
+--
+-- TOC entry 3523 (class 0 OID 16421)
+-- Dependencies: 216
+-- Data for Name: auth_group; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- TOC entry 3525 (class 0 OID 16430)
+-- Dependencies: 218
+-- Data for Name: auth_group_permissions; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- TOC entry 3521 (class 0 OID 16414)
+-- Dependencies: 214
+-- Data for Name: auth_permission; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (1, 'Can add log entry', 1, 'add_logentry');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (2, 'Can change log entry', 1, 'change_logentry');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (3, 'Can delete log entry', 1, 'delete_logentry');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (4, 'Can view log entry', 1, 'view_logentry');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (5, 'Can add permission', 2, 'add_permission');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (6, 'Can change permission', 2, 'change_permission');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (7, 'Can delete permission', 2, 'delete_permission');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (8, 'Can view permission', 2, 'view_permission');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (9, 'Can add group', 3, 'add_group');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (10, 'Can change group', 3, 'change_group');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (11, 'Can delete group', 3, 'delete_group');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (12, 'Can view group', 3, 'view_group');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (13, 'Can add user', 4, 'add_user');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (14, 'Can change user', 4, 'change_user');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (15, 'Can delete user', 4, 'delete_user');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (16, 'Can view user', 4, 'view_user');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (17, 'Can add content type', 5, 'add_contenttype');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (18, 'Can change content type', 5, 'change_contenttype');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (19, 'Can delete content type', 5, 'delete_contenttype');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (20, 'Can view content type', 5, 'view_contenttype');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (21, 'Can add session', 6, 'add_session');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (22, 'Can change session', 6, 'change_session');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (23, 'Can delete session', 6, 'delete_session');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (24, 'Can view session', 6, 'view_session');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (25, 'Can add article', 7, 'add_article');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (26, 'Can change article', 7, 'change_article');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (27, 'Can delete article', 7, 'delete_article');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (28, 'Can view article', 7, 'view_article');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (29, 'Can add comment', 8, 'add_comment');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (30, 'Can change comment', 8, 'change_comment');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (31, 'Can delete comment', 8, 'delete_comment');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (32, 'Can view comment', 8, 'view_comment');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (33, 'Can add answer', 9, 'add_answer');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (34, 'Can change answer', 9, 'change_answer');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (35, 'Can delete answer', 9, 'delete_answer');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (36, 'Can view answer', 9, 'view_answer');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (37, 'Can add profile', 10, 'add_profile');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (38, 'Can change profile', 10, 'change_profile');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (39, 'Can delete profile', 10, 'delete_profile');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (40, 'Can view profile', 10, 'view_profile');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (41, 'Can add topic', 11, 'add_topic');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (42, 'Can change topic', 11, 'change_topic');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (43, 'Can delete topic', 11, 'delete_topic');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (44, 'Can view topic', 11, 'view_topic');
+
+
+--
+-- TOC entry 3527 (class 0 OID 16437)
+-- Dependencies: 220
+-- Data for Name: auth_user; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (3, 'pbkdf2_sha256$216000$MnOxKHn79niZ$NkFbAvTLAEKNGkdEMcidgG92ZAroc0Gcp2PFK7z6W4M=', NULL, false, 'Markham_Heid', 'Markham', 'heid', 'Markham@hotmail.com', false, true, '2021-11-24 21:41:35+03');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (2, 'pbkdf2_sha256$216000$skBI4EBf76Hf$GAqeQBgy0A7f/ggBKBqNefVWAgMpx33QRzBALKJe41k=', NULL, true, 'Emma_Twersky', 'Emma Twersky', '', 'selin@gmail.com', true, true, '2021-11-24 14:07:57+03');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (4, 'pbkdf2_sha256$216000$J2wF59xq3gCv$7/n7OH/g0WxHHO1pcH5kYqCsXPSwhPzav5Mn2jVJjig=', NULL, false, 'Raftlabs', '', '', 'Raftlabs@gmail.com', false, true, '2021-11-27 11:26:48+03');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (9, 'pbkdf2_sha256$216000$LT4UDjFcrI6w$Z8zINpeqe6B2Q5/OM9CXJDqNBYvAsvTS8BBBMjCGOFM=', NULL, false, 'Andy_Zenner', 'Andy', 'Zenner', 'AndyZenner@gmail.com', false, true, '2021-12-12 01:48:36+03');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (10, 'pbkdf2_sha256$216000$oy8s2kja7mHO$sUgoZpIfz6LAxaAwuFiRn45dDWIOrPVjtsKhIKU4/1s=', NULL, false, 'Ed_Orozco', 'Ed', 'Orozco', 'Ed_Orozco@gmail.com', false, true, '2021-12-12 01:59:28+03');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (11, 'pbkdf2_sha256$216000$oO3ijB429h1F$TrBFOOfGz3XTeLYLVfjscyIRBGbt3nOzkdmwWWGxHMk=', NULL, false, 'Aphinya_Dechalert', 'Aphinya', 'Dechalert', 'Aphinya_Dechalert@gmail.com', false, true, '2021-12-12 02:15:04+03');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (12, 'pbkdf2_sha256$216000$aB5BQxPmBt6j$L9krI9UtWpEN1feaGIRvuAIi/u75OEHkLHnT8I6mAsM=', NULL, false, 'Krisztina_Szerovay', 'Krisztina', 'Szerovay', 'Krisztina_Szerovay@gmail.com', false, true, '2021-12-12 02:28:23+03');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (1, 'pbkdf2_sha256$216000$n74KqtaizhQ0$BIGMqDB3abQ+ZeN0sTc1R8gfjobZk+/bqYnXoKLCX9A=', '2021-12-14 17:25:11.048373+03', true, 'Trey_Huffine', 'Trey', 'Huffine', 'Trey_Huffine@gmail.com', true, true, '2021-11-23 18:41:21+03');
+
+
+--
+-- TOC entry 3529 (class 0 OID 16446)
+-- Dependencies: 222
+-- Data for Name: auth_user_groups; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- TOC entry 3531 (class 0 OID 16453)
+-- Dependencies: 224
+-- Data for Name: auth_user_user_permissions; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- TOC entry 3533 (class 0 OID 16512)
+-- Dependencies: 226
+-- Data for Name: django_admin_log; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (1, '2021-11-24 13:57:02.279007+03', '1', 'Art', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (2, '2021-11-24 13:57:13.635774+03', '1', 'makale1', 2, '[{"changed": {"fields": ["Konular"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (3, '2021-11-24 14:06:39.590895+03', '1', 'makale1', 2, '[{"changed": {"fields": ["\u00d6nerilme Durumu", "ReadDuration"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (4, '2021-11-24 14:08:41.946731+03', '2', 'makale 2', 1, '[{"added": {}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (5, '2021-11-24 14:20:52.405539+03', '2', 'Business', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (6, '2021-11-24 14:21:00.115557+03', '2', 'makale 2', 2, '[{"changed": {"fields": ["Konular"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (7, '2021-11-24 14:53:40.047358+03', '1', 'muhammet', 2, '[{"changed": {"fields": ["Kullan\u0131c\u0131 fotograf\u0131 "]}}]', 10, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (8, '2021-11-24 14:54:01.765078+03', '2', 'selin', 2, '[{"changed": {"fields": ["Kullan\u0131c\u0131 fotograf\u0131 "]}}]', 10, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (9, '2021-11-24 18:12:16.77872+03', '3', 'NodeJS', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (10, '2021-11-24 18:15:25.370738+03', '3', '10 best practices every Node.js developer must fol', 1, '[{"added": {}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (11, '2021-11-24 18:18:07.158455+03', '3', '10 best practices every Node.js developer must fol', 2, '[{"changed": {"fields": ["Makaleye Fotograf y\u00fckleyin "]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (12, '2021-11-24 18:20:21.265383+03', '3', '10 best practices every Node.js developer must follow', 2, '[{"changed": {"fields": ["Ba\u015fl\u0131k"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (13, '2021-11-24 19:53:49.297693+03', '4', 'VScode', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (14, '2021-11-24 19:54:34.113107+03', '2', 'The Best VS Code Themes 2022🤩', 2, '[{"changed": {"fields": ["Ba\u015fl\u0131k", "Content", "Makaleye Fotograf y\u00fckleyin ", "Konular", "\u00d6nerilme Durumu", "ReadDuration"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (15, '2021-11-24 20:34:20.300212+03', '5', 'Technology', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (16, '2021-11-24 20:34:33.585088+03', '6', 'Productivity', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (17, '2021-11-24 20:34:40.631901+03', '7', 'React', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (18, '2021-11-24 20:34:53.175049+03', '8', 'ExpressJS', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (19, '2021-11-24 21:41:36.431755+03', '3', 'Markham_Heid', 1, '[{"added": {}}]', 4, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (20, '2021-11-24 21:42:14.133929+03', '3', 'Markham_Heid', 2, '[{"changed": {"fields": ["First name", "Last name", "Email address"]}}]', 4, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (21, '2021-11-24 21:47:11.470149+03', '9', 'Javascript', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (22, '2021-11-24 21:47:41.874774+03', '10', 'Metaverse', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (23, '2021-11-24 21:48:32.940482+03', '4', '10 Interview Questions Every JavaScript Developer Should Know', 1, '[{"added": {}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (24, '2021-11-24 21:50:06.175042+03', '3', 'Markham_Heid', 2, '[{"changed": {"fields": ["Kullan\u0131c\u0131 fotograf\u0131 "]}}]', 10, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (25, '2021-11-24 22:30:30.766999+03', '11', 'Responsive Web Design', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (26, '2021-11-24 22:30:50.962264+03', '1', 'The start of a new era for Responsive Web Design', 2, '[{"changed": {"fields": ["Ba\u015fl\u0131k", "Content", "Makaleye Fotograf y\u00fckleyin ", "Konular", "\u00d6nerilme Durumu", "ReadDuration"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (27, '2021-11-24 22:31:54.898037+03', '1', 'The start of a new era for Responsive Web Design', 2, '[{"changed": {"fields": ["Content"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (28, '2021-11-24 22:32:28.517309+03', '1', 'The start of a new era for Responsive Web Design', 2, '[{"changed": {"fields": ["Content"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (29, '2021-11-24 22:35:44.132795+03', '4', '10 Interview Questions Every JavaScript Developer Should Know', 2, '[{"changed": {"fields": ["Content"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (30, '2021-11-24 22:36:34.708849+03', '4', '10 Interview Questions Every JavaScript Developer Should Know', 2, '[{"changed": {"fields": ["Content"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (31, '2021-11-25 19:38:12.215777+03', '4', '10 Interview Questions Every JavaScript Developer Should Know', 2, '[]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (32, '2021-11-25 19:38:35.657597+03', '3', '10 best practices every Node.js developer must follow', 2, '[]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (33, '2021-11-25 19:38:45.37346+03', '2', 'The Best VS Code Themes 2022🤩', 2, '[]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (34, '2021-11-25 19:38:52.765006+03', '1', 'The start of a new era for Responsive Web Design', 2, '[]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (35, '2021-11-25 22:54:25.044874+03', '3', '10 best practices every Node.js developer must follow', 2, '[{"changed": {"fields": ["Content"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (36, '2021-11-25 22:54:25.132602+03', '3', '10 best practices every Node.js developer must follow', 2, '[{"changed": {"fields": ["Content"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (37, '2021-11-25 23:09:26.501186+03', '5', 'Top 8 Gantt Chart Software for 2021', 1, '[{"added": {}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (38, '2021-11-25 23:10:47.484862+03', '5', 'Top 8 Gantt Chart Software for 2021', 2, '[{"changed": {"fields": ["Content"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (39, '2021-11-25 23:11:27.04327+03', '5', 'Top 8 Gantt Chart Software for 2021', 2, '[{"changed": {"fields": ["Content"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (40, '2021-11-26 00:44:08.639283+03', '5', 'Top 8 Gantt Chart Software for 2021', 2, '[]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (41, '2021-11-26 00:44:56.855663+03', '4', '10 Interview Questions Every JavaScript Developer Should Know', 2, '[{"changed": {"fields": ["Content"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (42, '2021-11-26 01:28:16.284389+03', '5', 'Top 8 Gantt Chart Software for 2021', 2, '[{"changed": {"fields": ["Content"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (43, '2021-11-26 14:48:37.139515+03', '2', 'The Best VS Code Themes 2022🤩', 2, '[{"changed": {"fields": ["Content"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (44, '2021-11-26 23:39:18.556696+03', '3', 'Markham_Heid', 2, '[{"changed": {"fields": ["Kullan\u0131c\u0131n"]}}]', 10, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (45, '2021-11-27 00:14:53.495545+03', '1', 'muhammet', 2, '[{"changed": {"fields": ["Kullan\u0131c\u0131n sonradan okuyacag\u0131 makaleler "]}}]', 10, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (46, '2021-11-27 00:21:06.758643+03', '1', 'muhammet', 2, '[{"changed": {"fields": ["Kullan\u0131c\u0131n sonradan okuyacag\u0131 makaleler "]}}]', 10, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (47, '2021-11-27 01:20:45.342796+03', '5', 'Top 8 Gantt Chart Software for 2021', 2, '[{"changed": {"fields": ["ReadList"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (48, '2021-11-27 11:26:48.491504+03', '4', 'RaftLabs', 1, '[{"added": {}}]', 4, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (49, '2021-11-27 11:27:10.562795+03', '4', 'RaftLabs', 2, '[{"changed": {"fields": ["Introduce"]}}]', 10, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (50, '2021-11-27 11:27:52.46064+03', '4', 'RaftLabs', 2, '[{"changed": {"fields": ["Kullan\u0131c\u0131 fotograf\u0131 "]}}]', 10, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (51, '2021-11-27 11:29:18.917652+03', '12', 'Python', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (52, '2021-11-27 11:29:46.090342+03', '13', 'Backend', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (53, '2021-11-27 11:30:07.789716+03', '14', 'Software Development', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (54, '2021-11-27 11:30:55.963178+03', '6', 'Most Popular Backend Framework of 2021', 1, '[{"added": {}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (55, '2021-11-28 23:14:42.713191+03', '4', 'RaftLabs', 2, '[{"changed": {"fields": ["Email address"]}}]', 4, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (56, '2021-11-29 18:27:11.773754+03', '2', 'Emma_Twersky', 2, '[{"changed": {"fields": ["Username", "First name"]}}]', 4, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (57, '2021-11-29 18:27:37.525899+03', '2', 'Emma_Twersky', 2, '[{"changed": {"fields": ["Kullan\u0131c\u0131 fotograf\u0131 "]}}]', 10, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (58, '2021-11-29 22:38:50.446813+03', '1', 'Trey_Huffine', 2, '[{"changed": {"fields": ["Username", "First name", "Last name", "Email address"]}}]', 4, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (59, '2021-11-29 22:39:41.617947+03', '1', 'Trey_Huffine', 2, '[{"changed": {"fields": ["Kullan\u0131c\u0131 fotograf\u0131 ", "Introduce"]}}]', 10, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (60, '2021-11-29 23:03:25.175888+03', '15', 'Software Engineering', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (61, '2021-11-29 23:03:44.3537+03', '16', 'Programming', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (62, '2021-11-29 23:04:07.945395+03', '17', 'Web Development', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (63, '2021-11-29 23:05:36.793425+03', '7', 'The Roadmap to Landing Your Next Job as a Software Engineer', 1, '[{"added": {}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (64, '2021-11-29 23:06:08.203979+03', '7', 'The Roadmap to Landing Your Next Job as a Software Engineer', 2, '[{"changed": {"fields": ["Makaleye Fotograf y\u00fckleyin "]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (65, '2021-11-30 12:14:09.827294+03', '4', 'Raftlabs', 2, '[{"changed": {"fields": ["Username", "Email address"]}}]', 4, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (66, '2021-12-01 16:19:23.184053+03', '6', 'Most Popular Backend Framework of 2021', 2, '[{"changed": {"fields": ["ClapUser"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (67, '2021-12-01 16:49:25.479967+03', '7', 'The Roadmap to Landing Your Next Job as a Software Engineer', 2, '[{"changed": {"fields": ["ClapNumber", "ClapUser"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (68, '2021-12-01 17:20:21.781644+03', '2', 'The Best VS Code Themes 2022🤩', 2, '[{"changed": {"fields": ["ClapNumber", "ClapUser"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (69, '2021-12-01 17:28:00.976712+03', '2', 'The Best VS Code Themes 2022🤩', 2, '[{"changed": {"fields": ["ClapNumber", "ClapUser"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (70, '2021-12-01 17:34:41.21972+03', '5', 'Top 8 Gantt Chart Software for 2021', 2, '[{"changed": {"fields": ["ClapNumber", "ClapUser"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (71, '2021-12-01 20:09:37.312647+03', '8', 'dasdasdasdsad', 1, '[{"added": {}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (73, '2021-12-03 00:15:55.272247+03', '22', '14 Useful Websites You Wish You Knew Earlier', 2, '[{"changed": {"fields": ["Content"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (74, '2021-12-03 00:19:13.458566+03', '18', 'Design', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (75, '2021-12-03 00:19:27.07325+03', '19', 'Web', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (76, '2021-12-03 00:19:37.814951+03', '20', 'Loud', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (77, '2021-12-03 00:19:45.822383+03', '21', 'Tools', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (78, '2021-12-03 00:19:50.090857+03', '22', '14 Useful Websites You Wish You Knew Earlier', 2, '[{"changed": {"fields": ["Content", "Konular"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (79, '2021-12-03 00:20:04.102438+03', '21', 'dsadsad', 3, '', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (80, '2021-12-03 00:20:04.12044+03', '20', 'dsad', 3, '', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (81, '2021-12-03 18:52:56.219267+03', '7', 'The Roadmap to Landing Your Next Job as a Software Engineer', 2, '[{"changed": {"fields": ["ClapNumber"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (82, '2021-12-03 21:16:06.470787+03', '1', 'Trey_Huffine', 2, '[{"changed": {"fields": ["Followers"]}}]', 10, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (83, '2021-12-03 21:16:15.693891+03', '2', 'Emma_Twersky', 2, '[{"changed": {"fields": ["Following"]}}]', 10, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (84, '2021-12-08 17:49:17.03035+03', '6', 'mexamik', 3, '', 4, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (85, '2021-12-08 17:49:17.193969+03', '7', 'muham', 3, '', 4, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (86, '2021-12-08 17:49:17.196706+03', '8', 'muhammet', 3, '', 4, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (87, '2021-12-09 22:17:39.130715+03', '2', 'Emma_Twersky', 2, '[{"changed": {"fields": ["Followers"]}}]', 10, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (88, '2021-12-10 12:54:56.387354+03', '2', 'Emma_Twersky', 2, '[{"changed": {"fields": ["Followers"]}}]', 10, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (89, '2021-12-10 13:00:26.771583+03', '1', 'Trey_Huffine', 2, '[{"changed": {"fields": ["Followers"]}}]', 10, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (90, '2021-12-10 14:34:46.635955+03', '3', 'Markham_Heid', 2, '[{"changed": {"fields": ["Following"]}}]', 10, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (91, '2021-12-10 14:37:59.326419+03', '4', 'Raftlabs', 2, '[{"changed": {"fields": ["Followers"]}}]', 10, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (92, '2021-12-10 14:38:26.284021+03', '4', 'Raftlabs', 2, '[{"changed": {"fields": ["Followers"]}}]', 10, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (93, '2021-12-10 15:19:28.106696+03', '21', 'Tools', 2, '[]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (94, '2021-12-10 15:19:49.67+03', '22', 'abra kdab', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (95, '2021-12-10 15:21:59.454021+03', '22', 'abra kdabs', 2, '[{"changed": {"fields": ["Konu Ba\u015fl\u0131g\u0131"]}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (96, '2021-12-10 15:24:39.107258+03', '22', 'abra kdabss', 2, '[{"changed": {"fields": ["Konu Basligi"]}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (97, '2021-12-10 15:24:47.539257+03', '22', 'abra kdabss', 2, '[{"changed": {"fields": ["Slug"]}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (98, '2021-12-10 15:24:55.215336+03', '22', 'abra kdabss', 2, '[{"changed": {"fields": ["Slug"]}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (99, '2021-12-10 15:27:37.5155+03', '22', 'abra kdabss', 2, '[]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (100, '2021-12-10 15:27:49.434719+03', '22', 'abra kdabss', 3, '', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (101, '2021-12-10 15:27:54.191362+03', '21', 'Tools', 2, '[]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (102, '2021-12-10 15:28:02.623959+03', '17', 'Web Development', 2, '[]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (103, '2021-12-10 15:28:11.086374+03', '20', 'Loud', 2, '[]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (104, '2021-12-10 15:28:15.240308+03', '19', 'Web', 2, '[]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (105, '2021-12-10 15:28:21.043945+03', '18', 'Design', 2, '[]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (106, '2021-12-10 15:28:25.409264+03', '16', 'Programming', 2, '[]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (107, '2021-12-10 15:28:30.152008+03', '15', 'Software Engineering', 2, '[]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (108, '2021-12-10 15:28:35.915802+03', '14', 'Software Development', 2, '[]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (109, '2021-12-10 15:28:39.855816+03', '13', 'Backend', 2, '[]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (110, '2021-12-10 15:28:44.421119+03', '12', 'Python', 2, '[]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (111, '2021-12-10 15:28:50.361329+03', '11', 'Responsive Web Design', 2, '[]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (112, '2021-12-10 15:28:55.454107+03', '10', 'Metaverse', 2, '[]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (113, '2021-12-10 15:29:00.000375+03', '9', 'Javascript', 2, '[]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (114, '2021-12-10 15:29:05.316675+03', '8', 'ExpressJS', 2, '[]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (115, '2021-12-10 15:29:09.753684+03', '7', 'React', 2, '[]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (116, '2021-12-10 15:29:15.653209+03', '6', 'Productivity', 2, '[]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (117, '2021-12-10 15:29:21.743623+03', '7', 'React', 2, '[]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (118, '2021-12-10 15:29:27.802745+03', '6', 'Productivity', 2, '[]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (119, '2021-12-10 15:29:33.544748+03', '5', 'Technology', 2, '[]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (120, '2021-12-10 15:29:43.825678+03', '4', 'VScode', 2, '[]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (121, '2021-12-10 15:29:48.93204+03', '3', 'NodeJS', 2, '[]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (122, '2021-12-10 15:29:54.333752+03', '2', 'Business', 2, '[]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (123, '2021-12-10 15:30:00.135342+03', '1', 'Art', 2, '[]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (124, '2021-12-10 15:45:51.493139+03', '6', 'Most Popular Backend Framework of 2021', 2, '[{"changed": {"fields": ["Konular"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (125, '2021-12-11 00:43:54.740891+03', '7', 'The Roadmap to Landing Your Next Job as a Software Engineer', 2, '[{"changed": {"fields": ["ClapUser"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (126, '2021-12-11 16:22:59.084229+03', '7', 'The Roadmap to Landing Your Next Job as a Software Engineer', 2, '[{"changed": {"fields": ["ClapNumber"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (127, '2021-12-11 21:14:08.984095+03', '22', '14 Useful Websites You Wish You Knew Earlier', 2, '[{"changed": {"fields": ["Content"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (128, '2021-12-11 21:14:44.188565+03', '22', '14 Useful Websites You Wish You Knew Earlier', 2, '[{"changed": {"fields": ["Content"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (129, '2021-12-11 21:36:28.560219+03', '4', '10 Interview Questions Every JavaScript Developer Should Know', 2, '[{"changed": {"fields": ["Content"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (130, '2021-12-11 21:37:16.573542+03', '4', '10 Interview Questions Every JavaScript Developer Should Know', 2, '[{"changed": {"fields": ["Content"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (131, '2021-12-11 21:43:06.409566+03', '1', 'The start of a new era for Responsive Web Design', 2, '[{"changed": {"fields": ["Content"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (132, '2021-12-11 21:50:52.210891+03', '5', 'Top 8 Gantt Chart Software for 2021', 2, '[{"changed": {"fields": ["Content"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (133, '2021-12-12 01:48:37.234964+03', '9', 'Andy_Zenner', 1, '[{"added": {}}]', 4, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (134, '2021-12-12 01:49:12.060863+03', '9', 'Andy_Zenner', 2, '[{"changed": {"fields": ["First name", "Last name", "Email address"]}}]', 4, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (135, '2021-12-12 01:50:36.901392+03', '9', 'Andy_Zenner', 2, '[{"changed": {"fields": ["Kullan\u0131c\u0131 fotograf\u0131 ", "Introduce"]}}]', 10, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (136, '2021-12-12 01:54:10.948328+03', '27', 'Top 5 Web Design Agencies in 2021', 1, '[{"added": {}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (137, '2021-12-12 01:56:38.114772+03', '27', 'Top 5 Web Design Agencies in 2021', 2, '[{"changed": {"fields": ["Makaleye Fotograf y\u00fckleyin "]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (138, '2021-12-12 01:59:28.573254+03', '10', 'Ed_Orozco', 1, '[{"added": {}}]', 4, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (139, '2021-12-12 01:59:44.458621+03', '10', 'Ed_Orozco', 2, '[{"changed": {"fields": ["First name", "Last name", "Email address"]}}]', 4, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (140, '2021-12-12 02:02:49.561498+03', '23', 'Libraries', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (141, '2021-12-12 02:03:13.94508+03', '24', 'Material Ui', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (142, '2021-12-12 02:03:31.703731+03', '25', 'React Query', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (143, '2021-12-12 02:03:44.401085+03', '28', 'Top 10 Trending React.js Libraries of 2021', 1, '[{"added": {}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (144, '2021-12-12 02:04:43.647097+03', '27', 'Top 5 Web Design Agencies in 2021', 2, '[{"changed": {"fields": ["Makaleye Fotograf y\u00fckleyin "]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (145, '2021-12-12 02:07:37.188752+03', '10', 'Ed_Orozco', 2, '[{"changed": {"fields": ["Kullan\u0131c\u0131 fotograf\u0131 ", "Introduce"]}}]', 10, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (146, '2021-12-12 02:15:04.902203+03', '11', 'Aphinya_Dechalert', 1, '[{"added": {}}]', 4, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (147, '2021-12-12 02:15:22.587046+03', '11', 'Aphinya_Dechalert', 2, '[{"changed": {"fields": ["First name", "Last name", "Email address"]}}]', 4, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (148, '2021-12-12 02:16:10.270103+03', '11', 'Aphinya_Dechalert', 2, '[{"changed": {"fields": ["Kullan\u0131c\u0131 fotograf\u0131 ", "Introduce"]}}]', 10, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (149, '2021-12-12 02:20:18.168996+03', '26', 'Vuejs', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (150, '2021-12-12 02:20:42.445865+03', '27', 'Firebase', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (151, '2021-12-12 02:21:01.035285+03', '28', 'Firebaseauthentication', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (152, '2021-12-12 02:21:16.757984+03', '29', 'Vue Router', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (153, '2021-12-12 02:22:10.150533+03', '29', 'Vue 2 + Firebase: How to build a Vue app with Firebase authentication system in 15 minutes', 1, '[{"added": {}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (154, '2021-12-12 02:23:41.484206+03', '29', 'Vue 2 + Firebase: How to build a Vue app with Firebase authentication system in 15 minutes', 2, '[{"changed": {"fields": ["Content"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (155, '2021-12-12 02:28:23.680205+03', '12', 'Krisztina_Szerovay', 1, '[{"added": {}}]', 4, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (156, '2021-12-12 02:28:51.271627+03', '12', 'Krisztina_Szerovay', 2, '[{"changed": {"fields": ["First name", "Last name", "Email address"]}}]', 4, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (157, '2021-12-12 02:29:44.189511+03', '12', 'Krisztina_Szerovay', 2, '[{"changed": {"fields": ["Kullan\u0131c\u0131 fotograf\u0131 ", "Introduce"]}}]', 10, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (158, '2021-12-12 13:11:54.842152+03', '30', 'Kotlin', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (159, '2021-12-12 13:12:17.826035+03', '31', 'React Native', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (160, '2021-12-12 13:12:41.213813+03', '32', 'Flutter', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (161, '2021-12-12 13:12:53.73822+03', '33', 'Xamarin', 1, '[{"added": {}}]', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (162, '2021-12-12 13:14:08.985371+03', '30', 'Cross-platform mobile apps development in 2021: Xamarin vs React Native vs Flutter vs Kotlin Multipl', 1, '[{"added": {}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (163, '2021-12-12 13:15:17.88837+03', '30', 'Cross-platform mobile apps development in 2021: Xamarin vs React Native vs Flutter vs Kotlin Multipl', 2, '[{"changed": {"fields": ["Content"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (164, '2021-12-12 16:37:58.205815+03', '22', '14 Useful Websites You Wish You Knew Earlier', 2, '[{"changed": {"fields": ["Konular"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (165, '2021-12-12 17:38:44.498957+03', '30', 'Cross-platform mobile apps development in 2021: Xamarin vs React Native vs Flutter vs Kotlin Multipl', 2, '[{"changed": {"fields": ["Content"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (166, '2021-12-12 17:40:35.37288+03', '30', 'Cross-platform mobile apps development in 2021: Xamarin vs React Native vs Flutter vs Kotlin Multipl', 2, '[]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (167, '2021-12-12 17:42:05.909108+03', '30', 'Cross-platform mobile apps development in 2021: Xamarin vs React Native vs Flutter vs Kotlin Multiplatform', 2, '[{"changed": {"fields": ["Title"]}}]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (168, '2021-12-12 19:55:38.895723+03', '1', 'Art', 3, '', 11, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (169, '2021-12-12 23:30:53.269061+03', '13', 'kullanıcı1', 3, '', 4, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (170, '2021-12-12 23:50:42.813035+03', '1', 'Trey_Huffine', 2, '[{"changed": {"fields": ["Followers"]}}]', 10, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (171, '2021-12-12 23:56:35.340074+03', '9', 'Andy_Zenner', 2, '[{"changed": {"fields": ["Followers"]}}]', 10, 1);
+
+
+--
+-- TOC entry 3519 (class 0 OID 16405)
+-- Dependencies: 212
+-- Data for Name: django_content_type; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.django_content_type (id, app_label, model) VALUES (1, 'admin', 'logentry');
+INSERT INTO public.django_content_type (id, app_label, model) VALUES (2, 'auth', 'permission');
+INSERT INTO public.django_content_type (id, app_label, model) VALUES (3, 'auth', 'group');
+INSERT INTO public.django_content_type (id, app_label, model) VALUES (4, 'auth', 'user');
+INSERT INTO public.django_content_type (id, app_label, model) VALUES (5, 'contenttypes', 'contenttype');
+INSERT INTO public.django_content_type (id, app_label, model) VALUES (6, 'sessions', 'session');
+INSERT INTO public.django_content_type (id, app_label, model) VALUES (7, 'article', 'article');
+INSERT INTO public.django_content_type (id, app_label, model) VALUES (8, 'article', 'comment');
+INSERT INTO public.django_content_type (id, app_label, model) VALUES (9, 'article', 'answer');
+INSERT INTO public.django_content_type (id, app_label, model) VALUES (10, 'user', 'profile');
+INSERT INTO public.django_content_type (id, app_label, model) VALUES (11, 'article', 'topic');
+
+
+--
+-- TOC entry 3517 (class 0 OID 16396)
+-- Dependencies: 210
+-- Data for Name: django_migrations; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (1, 'contenttypes', '0001_initial', '2021-11-23 18:08:21.556391+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (2, 'auth', '0001_initial', '2021-11-23 18:08:21.803429+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (3, 'admin', '0001_initial', '2021-11-23 18:08:21.993445+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (4, 'admin', '0002_logentry_remove_auto_add', '2021-11-23 18:08:22.044449+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (5, 'admin', '0003_logentry_add_action_flag_choices', '2021-11-23 18:08:22.06443+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (6, 'article', '0001_initial', '2021-11-23 18:08:22.116667+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (7, 'article', '0002_auto_20201228_1952', '2021-11-23 18:08:22.311738+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (8, 'article', '0003_comment', '2021-11-23 18:08:22.353724+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (9, 'article', '0004_answer', '2021-11-23 18:08:22.409743+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (10, 'article', '0005_auto_20210103_1343', '2021-11-23 18:08:22.530731+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (11, 'article', '0006_comment_likes', '2021-11-23 18:08:22.582734+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (12, 'article', '0007_comment_liked', '2021-11-23 18:08:22.642742+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (13, 'article', '0008_comment_dislikes', '2021-11-23 18:08:22.704747+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (14, 'article', '0009_comment_unliked', '2021-11-23 18:08:22.775749+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (15, 'article', '0010_auto_20210127_1728', '2021-11-23 18:08:22.852754+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (16, 'article', '0011_auto_20210127_1755', '2021-11-23 18:08:22.954763+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (17, 'article', '0012_auto_20210127_1756', '2021-11-23 18:08:23.153787+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (18, 'article', '0013_auto_20210127_1816', '2021-11-23 18:08:23.309809+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (19, 'article', '0014_comment2', '2021-11-23 18:08:23.389795+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (20, 'article', '0015_auto_20210201_2108', '2021-11-23 18:08:23.641835+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (21, 'article', '0016_delete_comment2', '2021-11-23 18:08:23.670837+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (22, 'article', '0017_auto_20210201_2229', '2021-11-23 18:08:23.788845+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (23, 'contenttypes', '0002_remove_content_type_name', '2021-11-23 18:08:23.845828+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (24, 'auth', '0002_alter_permission_name_max_length', '2021-11-23 18:08:23.874834+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (25, 'auth', '0003_alter_user_email_max_length', '2021-11-23 18:08:23.906853+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (26, 'auth', '0004_alter_user_username_opts', '2021-11-23 18:08:23.936856+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (27, 'auth', '0005_alter_user_last_login_null', '2021-11-23 18:08:23.965837+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (28, 'auth', '0006_require_contenttypes_0002', '2021-11-23 18:08:23.971842+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (29, 'auth', '0007_alter_validators_add_error_messages', '2021-11-23 18:08:24.005843+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (30, 'auth', '0008_alter_user_username_max_length', '2021-11-23 18:08:24.059864+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (31, 'auth', '0009_alter_user_last_name_max_length', '2021-11-23 18:08:24.089847+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (32, 'auth', '0010_alter_group_name_max_length', '2021-11-23 18:08:24.131869+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (33, 'auth', '0011_update_proxy_permissions', '2021-11-23 18:08:24.161871+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (34, 'auth', '0012_alter_user_first_name_max_length', '2021-11-23 18:08:24.195875+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (35, 'sessions', '0001_initial', '2021-11-23 18:08:24.226878+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (36, 'user', '0001_initial', '2021-11-23 18:08:24.294863+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (37, 'user', '0002_auto_20210122_2310', '2021-11-23 18:08:24.343889+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (38, 'user', '0003_auto_20210126_2146', '2021-11-23 18:08:24.426874+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (39, 'user', '0004_auto_20210128_0143', '2021-11-23 18:08:24.495879+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (40, 'user', '0005_auto_20210128_0147', '2021-11-23 18:08:24.552883+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (41, 'user', '0006_auto_20210128_0207', '2021-11-23 18:08:24.590905+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (42, 'user', '0007_auto_20210129_2232', '2021-11-23 18:08:24.628888+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (43, 'article', '0018_auto_20211124_1354', '2021-11-24 13:54:50.698479+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (44, 'article', '0019_auto_20211124_1405', '2021-11-24 14:05:52.35554+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (45, 'article', '0020_auto_20211124_1820', '2021-11-24 18:20:08.347886+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (46, 'article', '0021_article_slug', '2021-11-25 19:37:53.993985+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (47, 'user', '0008_auto_20211126_2338', '2021-11-26 23:38:17.689859+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (48, 'article', '0022_article_readlist', '2021-11-27 01:20:10.776392+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (49, 'user', '0009_auto_20211127_0119', '2021-11-27 01:20:11.325903+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (50, 'user', '0010_profile_twitteradress', '2021-11-28 22:42:40.402225+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (51, 'article', '0023_auto_20211130_2101', '2021-11-30 21:02:08.840804+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (52, 'article', '0024_auto_20211203_2031', '2021-12-03 20:31:32.219284+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (53, 'user', '0011_auto_20211203_2031', '2021-12-03 20:31:32.443422+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (54, 'article', '0025_topic_slug', '2021-12-10 15:19:00.310124+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (55, 'article', '0026_auto_20211212_1741', '2021-12-12 17:41:53.0804+03');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (56, 'article', '0027_auto_20211213_0044', '2021-12-13 00:45:10.634595+03');
+
+
+--
+-- TOC entry 3536 (class 0 OID 16806)
+-- Dependencies: 229
+-- Data for Name: django_session; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.django_session (session_key, session_data, expire_date) VALUES ('cllybkvpi5hkc8u0xtfhngqpnv5oyw4z', '.eJxVjEEOwiAQRe_C2hBgAMGl-56BDDMoVUOT0q6MdzckXej2v_f-WyTct5r2XtY0s7gILU6_W0Z6ljYAP7DdF0lL29Y5y6HIg3Y5LVxe18P9O6jY66iL5WgDsQ1BgYmG2DG6ePNOk_bsLRGiB51j9mCsU2cHhoAZNBRF4vMF4iE3mA:1msWJT:SO8toa6I_7GN8NstLGoq467uwL9wJccLbgM4KTRPBdU', '2021-12-15 23:34:47.011843+03');
+INSERT INTO public.django_session (session_key, session_data, expire_date) VALUES ('y88lnqu4zf4jkdbl03145n66yld2731p', '.eJxVjMsOwiAQRf-FtSE8R3Dpvt9ABphK1UBS2pXx35WkC93ec859sYD7VsLeaQ1LZhcG7PS7RUwPqgPkO9Zb46nVbV0iHwo_aOdTy_S8Hu7fQcFeRq1MAiWtJ0LjcpLaC0tZex3JWpdniGenUAvQInkAj1ZGmAHQGPe12PsD2w43KQ:1mtyLm:gORSLkqnEknXSg99A235-C9OmZ9-ZeJdaspKra5wx0M', '2021-12-19 23:43:10.875732+03');
+INSERT INTO public.django_session (session_key, session_data, expire_date) VALUES ('r3hnfu1g2oxb5xp0y43g5uf4h39rgjrd', '.eJxVjEEOwiAQRe_C2hBgAMGl-56BDDMoVUOT0q6MdzckXej2v_f-WyTct5r2XtY0s7gILU6_W0Z6ljYAP7DdF0lL29Y5y6HIg3Y5LVxe18P9O6jY66iL5WgDsQ1BgYmG2DG6ePNOk_bsLRGiB51j9mCsU2cHhoAZNBRF4vMF4iE3mA:1muyD7:xkcx44YfrfgGyTbaZDpCGLS5V_oayAnU0RiHO34HxvU', '2021-12-22 17:46:21.226623+03');
+INSERT INTO public.django_session (session_key, session_data, expire_date) VALUES ('58vharmenxtqvtkxk6bnxnp1sk0bs6po', '.eJxVjEEOwiAQRe_C2hBgAMGl-56BDDMoVUOT0q6MdzckXej2v_f-WyTct5r2XtY0s7gILU6_W0Z6ljYAP7DdF0lL29Y5y6HIg3Y5LVxe18P9O6jY66iL5WgDsQ1BgYmG2DG6ePNOk_bsLRGiB51j9mCsU2cHhoAZNBRF4vMF4iE3mA:1mwWXp:faUsgS8HcUV99muOJj6ot972O2jI1GLlM3RQzygZdwc', '2021-12-27 00:38:09.254939+03');
+INSERT INTO public.django_session (session_key, session_data, expire_date) VALUES ('nmto3ys2sbwvg6u1g09t36elr8s3rtuv', '.eJxVjEEOwiAQRe_C2hBgAMGl-56BDDMoVUOT0q6MdzckXej2v_f-WyTct5r2XtY0s7gILU6_W0Z6ljYAP7DdF0lL29Y5y6HIg3Y5LVxe18P9O6jY66iL5WgDsQ1BgYmG2DG6ePNOk_bsLRGiB51j9mCsU2cHhoAZNBRF4vMF4iE3mA:1mx7o6:AoQygeLgdWiYUhGVQz8PkmmdRxNZYpk6RthhJ3RoL-4', '2021-12-28 16:25:26.066507+03');
+INSERT INTO public.django_session (session_key, session_data, expire_date) VALUES ('eodb5xl1wrh0cftbpblx251pk0dv9qp7', '.eJxVjEEOwiAQRe_C2hBgAMGl-56BDDMoVUOT0q6MdzckXej2v_f-WyTct5r2XtY0s7gILU6_W0Z6ljYAP7DdF0lL29Y5y6HIg3Y5LVxe18P9O6jY66iL5WgDsQ1BgYmG2DG6ePNOk_bsLRGiB51j9mCsU2cHhoAZNBRF4vMF4iE3mA:1mx8jv:FyH_hcJ8p-ZW8wvJh1JMqQZjfadS1bVwer0i00hEfws', '2021-12-28 17:25:11.064038+03');
+
+
+--
+-- TOC entry 3538 (class 0 OID 16816)
+-- Dependencies: 231
+-- Data for Name: user_profile; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.user_profile (id, profile_image, user_id, introduce, "twitterAdress") VALUES (2, 'profile/emma.jpg', 2, NULL, NULL);
+INSERT INTO public.user_profile (id, profile_image, user_id, introduce, "twitterAdress") VALUES (3, 'profile/markham.jpeg', 3, NULL, NULL);
+INSERT INTO public.user_profile (id, profile_image, user_id, introduce, "twitterAdress") VALUES (4, 'profile/raftlabs.png', 4, 'Building loveable software products for small and medium business at https://raftlabs.co. At the intersection of digital commerce, marketing and video', NULL);
+INSERT INTO public.user_profile (id, profile_image, user_id, introduce, "twitterAdress") VALUES (10, 'profile/ED.jpeg', 10, 'Helping UX design agencies grow consistently, sustainably, and fast https://edorozco.com/', NULL);
+INSERT INTO public.user_profile (id, profile_image, user_id, introduce, "twitterAdress") VALUES (11, 'profile/aphinya.jpeg', 11, 'Code Things + Productivity, Freelancing & Ideas 🎪', NULL);
+INSERT INTO public.user_profile (id, profile_image, user_id, introduce, "twitterAdress") VALUES (12, 'profile/kristina.jpeg', 12, '💻UX Designer 👩‍🏫Mentor 📝Founder of the UX Knowledge Base Sketch — https://uxknowledgebase.com ✏️️Sketching for UX Designers — https://sketchingfor', NULL);
+INSERT INTO public.user_profile (id, profile_image, user_id, introduce, "twitterAdress") VALUES (9, 'profile/andy.jpeg', 9, 'Seasoned UX designer and amateur writer', NULL);
+INSERT INTO public.user_profile (id, profile_image, user_id, introduce, "twitterAdress") VALUES (1, 'profile/trey.jpeg', 1, 'Founder of skilled.dev and gitconnected.com - Passionate for helping developers grow their careers. @treyhuffine', NULL);
+
+
+--
+-- TOC entry 3548 (class 0 OID 17090)
+-- Dependencies: 241
+-- Data for Name: user_profile_followers; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.user_profile_followers (id, profile_id, user_id) VALUES (121, 2, 1);
+INSERT INTO public.user_profile_followers (id, profile_id, user_id) VALUES (128, 4, 1);
+INSERT INTO public.user_profile_followers (id, profile_id, user_id) VALUES (129, 12, 1);
+INSERT INTO public.user_profile_followers (id, profile_id, user_id) VALUES (130, 10, 1);
+INSERT INTO public.user_profile_followers (id, profile_id, user_id) VALUES (131, 1, 1);
+INSERT INTO public.user_profile_followers (id, profile_id, user_id) VALUES (132, 1, 2);
+INSERT INTO public.user_profile_followers (id, profile_id, user_id) VALUES (133, 1, 4);
+INSERT INTO public.user_profile_followers (id, profile_id, user_id) VALUES (134, 1, 9);
+INSERT INTO public.user_profile_followers (id, profile_id, user_id) VALUES (135, 1, 10);
+INSERT INTO public.user_profile_followers (id, profile_id, user_id) VALUES (136, 1, 11);
+INSERT INTO public.user_profile_followers (id, profile_id, user_id) VALUES (137, 1, 12);
+INSERT INTO public.user_profile_followers (id, profile_id, user_id) VALUES (138, 9, 1);
+INSERT INTO public.user_profile_followers (id, profile_id, user_id) VALUES (139, 9, 2);
+INSERT INTO public.user_profile_followers (id, profile_id, user_id) VALUES (140, 9, 3);
+INSERT INTO public.user_profile_followers (id, profile_id, user_id) VALUES (141, 9, 4);
+INSERT INTO public.user_profile_followers (id, profile_id, user_id) VALUES (142, 9, 9);
+INSERT INTO public.user_profile_followers (id, profile_id, user_id) VALUES (143, 9, 10);
+INSERT INTO public.user_profile_followers (id, profile_id, user_id) VALUES (144, 9, 11);
+INSERT INTO public.user_profile_followers (id, profile_id, user_id) VALUES (145, 9, 12);
+INSERT INTO public.user_profile_followers (id, profile_id, user_id) VALUES (104, 2, 3);
+INSERT INTO public.user_profile_followers (id, profile_id, user_id) VALUES (105, 2, 4);
+INSERT INTO public.user_profile_followers (id, profile_id, user_id) VALUES (106, 1, 3);
+
+
+--
+-- TOC entry 3550 (class 0 OID 17097)
+-- Dependencies: 243
+-- Data for Name: user_profile_following; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.user_profile_following (id, profile_id, user_id) VALUES (116, 3, 3);
+INSERT INTO public.user_profile_following (id, profile_id, user_id) VALUES (117, 1, 2);
+INSERT INTO public.user_profile_following (id, profile_id, user_id) VALUES (124, 1, 4);
+INSERT INTO public.user_profile_following (id, profile_id, user_id) VALUES (125, 1, 12);
+INSERT INTO public.user_profile_following (id, profile_id, user_id) VALUES (126, 1, 10);
+
+
+--
+-- TOC entry 3573 (class 0 OID 0)
+-- Dependencies: 238
+-- Name: article_article_clapUser_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public."article_article_clapUser_id_seq"', 22, true);
+
+
+--
+-- TOC entry 3574 (class 0 OID 0)
+-- Dependencies: 227
+-- Name: article_article_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.article_article_id_seq', 30, true);
+
+
+--
+-- TOC entry 3575 (class 0 OID 0)
+-- Dependencies: 236
+-- Name: article_article_readList_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public."article_article_readList_id_seq"', 144, true);
+
+
+--
+-- TOC entry 3576 (class 0 OID 0)
+-- Dependencies: 234
+-- Name: article_article_topic_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.article_article_topic_id_seq', 106, true);
+
+
+--
+-- TOC entry 3577 (class 0 OID 0)
+-- Dependencies: 232
+-- Name: article_topic_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.article_topic_id_seq', 33, true);
+
+
+--
+-- TOC entry 3578 (class 0 OID 0)
+-- Dependencies: 215
+-- Name: auth_group_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.auth_group_id_seq', 1, false);
+
+
+--
+-- TOC entry 3579 (class 0 OID 0)
+-- Dependencies: 217
+-- Name: auth_group_permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.auth_group_permissions_id_seq', 1, false);
+
+
+--
+-- TOC entry 3580 (class 0 OID 0)
+-- Dependencies: 213
+-- Name: auth_permission_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.auth_permission_id_seq', 44, true);
+
+
+--
+-- TOC entry 3581 (class 0 OID 0)
+-- Dependencies: 221
+-- Name: auth_user_groups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.auth_user_groups_id_seq', 1, false);
+
+
+--
+-- TOC entry 3582 (class 0 OID 0)
+-- Dependencies: 219
+-- Name: auth_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.auth_user_id_seq', 13, true);
+
+
+--
+-- TOC entry 3583 (class 0 OID 0)
+-- Dependencies: 223
+-- Name: auth_user_user_permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.auth_user_user_permissions_id_seq', 1, false);
+
+
+--
+-- TOC entry 3584 (class 0 OID 0)
+-- Dependencies: 225
+-- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.django_admin_log_id_seq', 171, true);
+
+
+--
+-- TOC entry 3585 (class 0 OID 0)
+-- Dependencies: 211
+-- Name: django_content_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.django_content_type_id_seq', 11, true);
+
+
+--
+-- TOC entry 3586 (class 0 OID 0)
+-- Dependencies: 209
+-- Name: django_migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.django_migrations_id_seq', 56, true);
+
+
+--
+-- TOC entry 3587 (class 0 OID 0)
+-- Dependencies: 240
+-- Name: user_profile_followers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.user_profile_followers_id_seq', 145, true);
+
+
+--
+-- TOC entry 3588 (class 0 OID 0)
+-- Dependencies: 242
+-- Name: user_profile_following_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.user_profile_following_id_seq', 126, true);
+
+
+--
+-- TOC entry 3589 (class 0 OID 0)
+-- Dependencies: 230
+-- Name: user_profile_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.user_profile_id_seq', 13, true);
+
+
+--
+-- TOC entry 3340 (class 2606 OID 16977)
+-- Name: article_article_clapUser article_article_clapUser_article_id_user_id_4af9d2d4_uniq; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."article_article_clapUser"
+    ADD CONSTRAINT "article_article_clapUser_article_id_user_id_4af9d2d4_uniq" UNIQUE (article_id, user_id);
+
+
+--
+-- TOC entry 3342 (class 2606 OID 16975)
+-- Name: article_article_clapUser article_article_clapUser_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."article_article_clapUser"
+    ADD CONSTRAINT "article_article_clapUser_pkey" PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3311 (class 2606 OID 16541)
+-- Name: article_article article_article_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.article_article
+    ADD CONSTRAINT article_article_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3334 (class 2606 OID 16951)
+-- Name: article_article_readList article_article_readList_article_id_user_id_bd26cd92_uniq; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."article_article_readList"
+    ADD CONSTRAINT "article_article_readList_article_id_user_id_bd26cd92_uniq" UNIQUE (article_id, user_id);
+
+
+--
+-- TOC entry 3336 (class 2606 OID 16949)
+-- Name: article_article_readList article_article_readList_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."article_article_readList"
+    ADD CONSTRAINT "article_article_readList_pkey" PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3328 (class 2606 OID 16861)
+-- Name: article_article_topic article_article_topic_article_id_topic_id_30d9f159_uniq; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.article_article_topic
+    ADD CONSTRAINT article_article_topic_article_id_topic_id_30d9f159_uniq UNIQUE (article_id, topic_id);
+
+
+--
+-- TOC entry 3330 (class 2606 OID 16859)
+-- Name: article_article_topic article_article_topic_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.article_article_topic
+    ADD CONSTRAINT article_article_topic_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3323 (class 2606 OID 16852)
+-- Name: article_topic article_topic_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.article_topic
+    ADD CONSTRAINT article_topic_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3279 (class 2606 OID 16804)
+-- Name: auth_group auth_group_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_group
+    ADD CONSTRAINT auth_group_name_key UNIQUE (name);
+
+
+--
+-- TOC entry 3284 (class 2606 OID 16469)
+-- Name: auth_group_permissions auth_group_permissions_group_id_permission_id_0cd325b0_uniq; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_group_permissions
+    ADD CONSTRAINT auth_group_permissions_group_id_permission_id_0cd325b0_uniq UNIQUE (group_id, permission_id);
+
+
+--
+-- TOC entry 3287 (class 2606 OID 16435)
+-- Name: auth_group_permissions auth_group_permissions_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_group_permissions
+    ADD CONSTRAINT auth_group_permissions_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3281 (class 2606 OID 16426)
+-- Name: auth_group auth_group_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_group
+    ADD CONSTRAINT auth_group_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3274 (class 2606 OID 16460)
+-- Name: auth_permission auth_permission_content_type_id_codename_01ab375a_uniq; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_permission
+    ADD CONSTRAINT auth_permission_content_type_id_codename_01ab375a_uniq UNIQUE (content_type_id, codename);
+
+
+--
+-- TOC entry 3276 (class 2606 OID 16419)
+-- Name: auth_permission auth_permission_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_permission
+    ADD CONSTRAINT auth_permission_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3295 (class 2606 OID 16451)
+-- Name: auth_user_groups auth_user_groups_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_user_groups
+    ADD CONSTRAINT auth_user_groups_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3298 (class 2606 OID 16484)
+-- Name: auth_user_groups auth_user_groups_user_id_group_id_94350c0c_uniq; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_user_groups
+    ADD CONSTRAINT auth_user_groups_user_id_group_id_94350c0c_uniq UNIQUE (user_id, group_id);
+
+
+--
+-- TOC entry 3289 (class 2606 OID 16442)
+-- Name: auth_user auth_user_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_user
+    ADD CONSTRAINT auth_user_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3301 (class 2606 OID 16458)
+-- Name: auth_user_user_permissions auth_user_user_permissions_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_user_user_permissions
+    ADD CONSTRAINT auth_user_user_permissions_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3304 (class 2606 OID 16498)
+-- Name: auth_user_user_permissions auth_user_user_permissions_user_id_permission_id_14a6b632_uniq; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_user_user_permissions
+    ADD CONSTRAINT auth_user_user_permissions_user_id_permission_id_14a6b632_uniq UNIQUE (user_id, permission_id);
+
+
+--
+-- TOC entry 3292 (class 2606 OID 16799)
+-- Name: auth_user auth_user_username_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_user
+    ADD CONSTRAINT auth_user_username_key UNIQUE (username);
+
+
+--
+-- TOC entry 3307 (class 2606 OID 16520)
+-- Name: django_admin_log django_admin_log_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.django_admin_log
+    ADD CONSTRAINT django_admin_log_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3269 (class 2606 OID 16412)
+-- Name: django_content_type django_content_type_app_label_model_76bd3d3b_uniq; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.django_content_type
+    ADD CONSTRAINT django_content_type_app_label_model_76bd3d3b_uniq UNIQUE (app_label, model);
+
+
+--
+-- TOC entry 3271 (class 2606 OID 16410)
+-- Name: django_content_type django_content_type_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.django_content_type
+    ADD CONSTRAINT django_content_type_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3267 (class 2606 OID 16403)
+-- Name: django_migrations django_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.django_migrations
+    ADD CONSTRAINT django_migrations_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3316 (class 2606 OID 16812)
+-- Name: django_session django_session_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.django_session
+    ADD CONSTRAINT django_session_pkey PRIMARY KEY (session_key);
+
+
+--
+-- TOC entry 3345 (class 2606 OID 17095)
+-- Name: user_profile_followers user_profile_followers_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_profile_followers
+    ADD CONSTRAINT user_profile_followers_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3348 (class 2606 OID 17104)
+-- Name: user_profile_followers user_profile_followers_profile_id_user_id_8b267cc1_uniq; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_profile_followers
+    ADD CONSTRAINT user_profile_followers_profile_id_user_id_8b267cc1_uniq UNIQUE (profile_id, user_id);
+
+
+--
+-- TOC entry 3351 (class 2606 OID 17102)
+-- Name: user_profile_following user_profile_following_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_profile_following
+    ADD CONSTRAINT user_profile_following_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3354 (class 2606 OID 17118)
+-- Name: user_profile_following user_profile_following_profile_id_user_id_0bd41115_uniq; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_profile_following
+    ADD CONSTRAINT user_profile_following_profile_id_user_id_0bd41115_uniq UNIQUE (profile_id, user_id);
+
+
+--
+-- TOC entry 3319 (class 2606 OID 16821)
+-- Name: user_profile user_profile_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_profile
+    ADD CONSTRAINT user_profile_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3321 (class 2606 OID 16834)
+-- Name: user_profile user_profile_username_id_59383d0c_uniq; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_profile
+    ADD CONSTRAINT user_profile_username_id_59383d0c_uniq UNIQUE (user_id);
+
+
+--
+-- TOC entry 3309 (class 1259 OID 16547)
+-- Name: article_article_author_id_e6b479f8; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX article_article_author_id_e6b479f8 ON public.article_article USING btree (author_id);
+
+
+--
+-- TOC entry 3338 (class 1259 OID 16988)
+-- Name: article_article_clapUser_article_id_49917e38; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX "article_article_clapUser_article_id_49917e38" ON public."article_article_clapUser" USING btree (article_id);
+
+
+--
+-- TOC entry 3343 (class 1259 OID 16989)
+-- Name: article_article_clapUser_user_id_153d2b65; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX "article_article_clapUser_user_id_153d2b65" ON public."article_article_clapUser" USING btree (user_id);
+
+
+--
+-- TOC entry 3332 (class 1259 OID 16962)
+-- Name: article_article_readList_article_id_a90d7b33; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX "article_article_readList_article_id_a90d7b33" ON public."article_article_readList" USING btree (article_id);
+
+
+--
+-- TOC entry 3337 (class 1259 OID 16963)
+-- Name: article_article_readList_user_id_c4ff2530; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX "article_article_readList_user_id_c4ff2530" ON public."article_article_readList" USING btree (user_id);
+
+
+--
+-- TOC entry 3312 (class 1259 OID 16910)
+-- Name: article_article_slug_b5fb1cdb; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX article_article_slug_b5fb1cdb ON public.article_article USING btree (slug);
+
+
+--
+-- TOC entry 3313 (class 1259 OID 16911)
+-- Name: article_article_slug_b5fb1cdb_like; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX article_article_slug_b5fb1cdb_like ON public.article_article USING btree (slug varchar_pattern_ops);
+
+
+--
+-- TOC entry 3326 (class 1259 OID 16872)
+-- Name: article_article_topic_article_id_bdaa0d93; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX article_article_topic_article_id_bdaa0d93 ON public.article_article_topic USING btree (article_id);
+
+
+--
+-- TOC entry 3331 (class 1259 OID 16873)
+-- Name: article_article_topic_topic_id_e21293d3; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX article_article_topic_topic_id_e21293d3 ON public.article_article_topic USING btree (topic_id);
+
+
+--
+-- TOC entry 3324 (class 1259 OID 17138)
+-- Name: article_topic_slug_66a8d7d5; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX article_topic_slug_66a8d7d5 ON public.article_topic USING btree (slug);
+
+
+--
+-- TOC entry 3325 (class 1259 OID 17139)
+-- Name: article_topic_slug_66a8d7d5_like; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX article_topic_slug_66a8d7d5_like ON public.article_topic USING btree (slug varchar_pattern_ops);
+
+
+--
+-- TOC entry 3277 (class 1259 OID 16805)
+-- Name: auth_group_name_a6ea08ec_like; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX auth_group_name_a6ea08ec_like ON public.auth_group USING btree (name varchar_pattern_ops);
+
+
+--
+-- TOC entry 3282 (class 1259 OID 16480)
+-- Name: auth_group_permissions_group_id_b120cbf9; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX auth_group_permissions_group_id_b120cbf9 ON public.auth_group_permissions USING btree (group_id);
+
+
+--
+-- TOC entry 3285 (class 1259 OID 16481)
+-- Name: auth_group_permissions_permission_id_84c5c92e; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX auth_group_permissions_permission_id_84c5c92e ON public.auth_group_permissions USING btree (permission_id);
+
+
+--
+-- TOC entry 3272 (class 1259 OID 16466)
+-- Name: auth_permission_content_type_id_2f476e4b; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX auth_permission_content_type_id_2f476e4b ON public.auth_permission USING btree (content_type_id);
+
+
+--
+-- TOC entry 3293 (class 1259 OID 16496)
+-- Name: auth_user_groups_group_id_97559544; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX auth_user_groups_group_id_97559544 ON public.auth_user_groups USING btree (group_id);
+
+
+--
+-- TOC entry 3296 (class 1259 OID 16495)
+-- Name: auth_user_groups_user_id_6a12ed8b; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX auth_user_groups_user_id_6a12ed8b ON public.auth_user_groups USING btree (user_id);
+
+
+--
+-- TOC entry 3299 (class 1259 OID 16510)
+-- Name: auth_user_user_permissions_permission_id_1fbb5f2c; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX auth_user_user_permissions_permission_id_1fbb5f2c ON public.auth_user_user_permissions USING btree (permission_id);
+
+
+--
+-- TOC entry 3302 (class 1259 OID 16509)
+-- Name: auth_user_user_permissions_user_id_a95ead1b; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX auth_user_user_permissions_user_id_a95ead1b ON public.auth_user_user_permissions USING btree (user_id);
+
+
+--
+-- TOC entry 3290 (class 1259 OID 16800)
+-- Name: auth_user_username_6821ab7c_like; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX auth_user_username_6821ab7c_like ON public.auth_user USING btree (username varchar_pattern_ops);
+
+
+--
+-- TOC entry 3305 (class 1259 OID 16531)
+-- Name: django_admin_log_content_type_id_c4bce8eb; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX django_admin_log_content_type_id_c4bce8eb ON public.django_admin_log USING btree (content_type_id);
+
+
+--
+-- TOC entry 3308 (class 1259 OID 16532)
+-- Name: django_admin_log_user_id_c564eba6; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX django_admin_log_user_id_c564eba6 ON public.django_admin_log USING btree (user_id);
+
+
+--
+-- TOC entry 3314 (class 1259 OID 16814)
+-- Name: django_session_expire_date_a5c62663; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX django_session_expire_date_a5c62663 ON public.django_session USING btree (expire_date);
+
+
+--
+-- TOC entry 3317 (class 1259 OID 16813)
+-- Name: django_session_session_key_c0390e0f_like; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX django_session_session_key_c0390e0f_like ON public.django_session USING btree (session_key varchar_pattern_ops);
+
+
+--
+-- TOC entry 3346 (class 1259 OID 17115)
+-- Name: user_profile_followers_profile_id_e107a83b; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX user_profile_followers_profile_id_e107a83b ON public.user_profile_followers USING btree (profile_id);
+
+
+--
+-- TOC entry 3349 (class 1259 OID 17116)
+-- Name: user_profile_followers_user_id_89caa04b; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX user_profile_followers_user_id_89caa04b ON public.user_profile_followers USING btree (user_id);
+
+
+--
+-- TOC entry 3352 (class 1259 OID 17129)
+-- Name: user_profile_following_profile_id_70eec90a; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX user_profile_following_profile_id_70eec90a ON public.user_profile_following USING btree (profile_id);
+
+
+--
+-- TOC entry 3355 (class 1259 OID 17130)
+-- Name: user_profile_following_user_id_91806a7a; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX user_profile_following_user_id_91806a7a ON public.user_profile_following USING btree (user_id);
+
+
+--
+-- TOC entry 3365 (class 2606 OID 16548)
+-- Name: article_article article_article_author_id_e6b479f8_fk_auth_user_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.article_article
+    ADD CONSTRAINT article_article_author_id_e6b479f8_fk_auth_user_id FOREIGN KEY (author_id) REFERENCES public.auth_user(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- TOC entry 3372 (class 2606 OID 16983)
+-- Name: article_article_clapUser article_article_clapUser_user_id_153d2b65_fk_auth_user_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."article_article_clapUser"
+    ADD CONSTRAINT "article_article_clapUser_user_id_153d2b65_fk_auth_user_id" FOREIGN KEY (user_id) REFERENCES public.auth_user(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- TOC entry 3371 (class 2606 OID 16978)
+-- Name: article_article_clapUser article_article_clap_article_id_49917e38_fk_article_a; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."article_article_clapUser"
+    ADD CONSTRAINT article_article_clap_article_id_49917e38_fk_article_a FOREIGN KEY (article_id) REFERENCES public.article_article(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- TOC entry 3370 (class 2606 OID 16957)
+-- Name: article_article_readList article_article_readList_user_id_c4ff2530_fk_auth_user_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."article_article_readList"
+    ADD CONSTRAINT "article_article_readList_user_id_c4ff2530_fk_auth_user_id" FOREIGN KEY (user_id) REFERENCES public.auth_user(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- TOC entry 3369 (class 2606 OID 16952)
+-- Name: article_article_readList article_article_read_article_id_a90d7b33_fk_article_a; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."article_article_readList"
+    ADD CONSTRAINT article_article_read_article_id_a90d7b33_fk_article_a FOREIGN KEY (article_id) REFERENCES public.article_article(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- TOC entry 3367 (class 2606 OID 16862)
+-- Name: article_article_topic article_article_topic_article_id_bdaa0d93_fk_article_article_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.article_article_topic
+    ADD CONSTRAINT article_article_topic_article_id_bdaa0d93_fk_article_article_id FOREIGN KEY (article_id) REFERENCES public.article_article(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- TOC entry 3368 (class 2606 OID 16867)
+-- Name: article_article_topic article_article_topic_topic_id_e21293d3_fk_article_topic_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.article_article_topic
+    ADD CONSTRAINT article_article_topic_topic_id_e21293d3_fk_article_topic_id FOREIGN KEY (topic_id) REFERENCES public.article_topic(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- TOC entry 3358 (class 2606 OID 16475)
+-- Name: auth_group_permissions auth_group_permissio_permission_id_84c5c92e_fk_auth_perm; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_group_permissions
+    ADD CONSTRAINT auth_group_permissio_permission_id_84c5c92e_fk_auth_perm FOREIGN KEY (permission_id) REFERENCES public.auth_permission(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- TOC entry 3357 (class 2606 OID 16470)
+-- Name: auth_group_permissions auth_group_permissions_group_id_b120cbf9_fk_auth_group_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_group_permissions
+    ADD CONSTRAINT auth_group_permissions_group_id_b120cbf9_fk_auth_group_id FOREIGN KEY (group_id) REFERENCES public.auth_group(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- TOC entry 3356 (class 2606 OID 16461)
+-- Name: auth_permission auth_permission_content_type_id_2f476e4b_fk_django_co; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_permission
+    ADD CONSTRAINT auth_permission_content_type_id_2f476e4b_fk_django_co FOREIGN KEY (content_type_id) REFERENCES public.django_content_type(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- TOC entry 3360 (class 2606 OID 16490)
+-- Name: auth_user_groups auth_user_groups_group_id_97559544_fk_auth_group_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_user_groups
+    ADD CONSTRAINT auth_user_groups_group_id_97559544_fk_auth_group_id FOREIGN KEY (group_id) REFERENCES public.auth_group(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- TOC entry 3359 (class 2606 OID 16485)
+-- Name: auth_user_groups auth_user_groups_user_id_6a12ed8b_fk_auth_user_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_user_groups
+    ADD CONSTRAINT auth_user_groups_user_id_6a12ed8b_fk_auth_user_id FOREIGN KEY (user_id) REFERENCES public.auth_user(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- TOC entry 3362 (class 2606 OID 16504)
+-- Name: auth_user_user_permissions auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_user_user_permissions
+    ADD CONSTRAINT auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm FOREIGN KEY (permission_id) REFERENCES public.auth_permission(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- TOC entry 3361 (class 2606 OID 16499)
+-- Name: auth_user_user_permissions auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_user_user_permissions
+    ADD CONSTRAINT auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id FOREIGN KEY (user_id) REFERENCES public.auth_user(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- TOC entry 3363 (class 2606 OID 16521)
+-- Name: django_admin_log django_admin_log_content_type_id_c4bce8eb_fk_django_co; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.django_admin_log
+    ADD CONSTRAINT django_admin_log_content_type_id_c4bce8eb_fk_django_co FOREIGN KEY (content_type_id) REFERENCES public.django_content_type(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- TOC entry 3364 (class 2606 OID 16526)
+-- Name: django_admin_log django_admin_log_user_id_c564eba6_fk_auth_user_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.django_admin_log
+    ADD CONSTRAINT django_admin_log_user_id_c564eba6_fk_auth_user_id FOREIGN KEY (user_id) REFERENCES public.auth_user(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- TOC entry 3373 (class 2606 OID 17105)
+-- Name: user_profile_followers user_profile_followers_profile_id_e107a83b_fk_user_profile_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_profile_followers
+    ADD CONSTRAINT user_profile_followers_profile_id_e107a83b_fk_user_profile_id FOREIGN KEY (profile_id) REFERENCES public.user_profile(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- TOC entry 3374 (class 2606 OID 17110)
+-- Name: user_profile_followers user_profile_followers_user_id_89caa04b_fk_auth_user_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_profile_followers
+    ADD CONSTRAINT user_profile_followers_user_id_89caa04b_fk_auth_user_id FOREIGN KEY (user_id) REFERENCES public.auth_user(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- TOC entry 3375 (class 2606 OID 17119)
+-- Name: user_profile_following user_profile_following_profile_id_70eec90a_fk_user_profile_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_profile_following
+    ADD CONSTRAINT user_profile_following_profile_id_70eec90a_fk_user_profile_id FOREIGN KEY (profile_id) REFERENCES public.user_profile(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- TOC entry 3376 (class 2606 OID 17124)
+-- Name: user_profile_following user_profile_following_user_id_91806a7a_fk_auth_user_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_profile_following
+    ADD CONSTRAINT user_profile_following_user_id_91806a7a_fk_auth_user_id FOREIGN KEY (user_id) REFERENCES public.auth_user(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- TOC entry 3366 (class 2606 OID 16840)
+-- Name: user_profile user_profile_user_id_8fdce8e2_fk_auth_user_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_profile
+    ADD CONSTRAINT user_profile_user_id_8fdce8e2_fk_auth_user_id FOREIGN KEY (user_id) REFERENCES public.auth_user(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+
+--
+-- PostgreSQL database dump complete
+--
+
